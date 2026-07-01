@@ -98,8 +98,8 @@ const partners = [
   {
     name: "Terracotta Cyber Solutions Limited",
     role: "Lead Organiser",
-    note: "Terracotta Cyber Solutions Limited",
-    logo: "/terracotta-logo-light.png",
+    note: "Terracotta",
+    logo: "/terracotta-logo-clean.png",
     logoClassName: "terracottaLogo",
   },
   {
