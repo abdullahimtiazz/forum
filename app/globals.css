@@ -152,6 +152,12 @@ main {
   color: var(--cedar);
 }
 
+.partnerLogoPanel img,
+.teamLogoPanel img {
+  display: block;
+  object-fit: contain;
+}
+
 h1,
 h2,
 h3,
@@ -611,6 +617,37 @@ h1 {
   border: 1px solid rgba(18, 35, 31, 0.08);
 }
 
+.logoSponsorCard {
+  justify-content: stretch;
+  border-color: rgba(18, 35, 31, 0.08);
+  background: transparent;
+}
+
+.partnerLogoPanel {
+  min-height: 140px;
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+}
+
+.partnerLogoPanel img {
+  height: auto;
+  aspect-ratio: auto;
+  border: 0;
+}
+
+.partnerLogoPanel .terracottaLogo {
+  width: min(100%, 285px);
+  max-height: 82px;
+}
+
+.partnerLogoPanel .hkuLogo {
+  width: min(100%, 172px);
+  max-height: 96px;
+}
+
 .sponsorCard span {
   display: block;
   margin-top: 20px;
@@ -659,6 +696,33 @@ h1 {
   height: 112px;
   object-fit: cover;
   border: 1px solid rgba(255, 250, 240, 0.2);
+}
+
+.teamLogoPanel {
+  width: 104px;
+  height: 112px;
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: 0;
+  background: transparent;
+}
+
+.teamLogoPanel img {
+  aspect-ratio: auto;
+  border: 0;
+  filter: drop-shadow(0 1px 0 rgba(255, 250, 240, 0.72))
+    drop-shadow(0 0 8px rgba(255, 250, 240, 0.34));
+}
+
+.teamLogoPanel .terracottaLogo {
+  width: 82px;
+  height: 42px;
+}
+
+.teamLogoPanel .hkuLogo {
+  width: 72px;
+  height: 84px;
 }
 
 .teamCard h3 {

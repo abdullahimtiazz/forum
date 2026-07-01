@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AI for Young Lawyers forum",
+  title: "AI for Young Lawyers Forum",
   description:
-    "A Hong Kong forum for young lawyers, students, and legal leaders on artificial intelligence and the future of early-career legal work.",
+    "A Hong Kong forum for law students and young practitioners on artificial intelligence, legal education, and early-career legal work.",
 };
 
 export default function RootLayout({

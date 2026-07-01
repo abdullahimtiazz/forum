@@ -12,110 +12,139 @@ import {
 
 const guests = [
   {
-    name: "Alicia Wong",
-    role: "Technology disputes associate",
-    org: "Harbour Chambers",
+    name: "Benjamin Chen",
+    role: "Professor of Law; Director, Law and Technology Centre",
+    org: "The University of Hong Kong",
   },
   {
-    name: "Marcus Lee",
-    role: "M&A lawyer",
-    org: "Jade & Co.",
+    name: "Stuart Hargreaves",
+    role: "Associate Dean (External Engagement) and Associate Professor",
+    org: "CUHK Faculty of Law",
   },
   {
-    name: "Priya Chan",
-    role: "Legal innovation counsel",
-    org: "North Point Bank",
+    name: "Wang Jiangyu",
+    role: "Professor of Law; Director, Centre for Chinese and Comparative Law",
+    org: "City University of Hong Kong",
   },
   {
-    name: "Daniel Ho",
-    role: "Assistant professor",
-    org: "HK Law School",
+    name: "Carl Li",
+    role: "Lead Innovation Lawyer - Asia",
+    org: "Linklaters",
   },
   {
-    name: "Natalie Fong",
-    role: "Regulatory policy manager",
-    org: "Digital Markets Office",
+    name: "Alan Chiu",
+    role: "Founding Partner",
+    org: "ELLALAN",
   },
   {
-    name: "James Lau",
-    role: "Trainee solicitor",
-    org: "Central Legal",
+    name: "Anissa Ng",
+    role: "Proposed demo speaker",
+    org: "LegalQuants / Sidley Austin wording TBC",
   },
   {
-    name: "Mei Tan",
-    role: "JD student",
-    org: "Hong Kong University",
+    name: "Chandy Ye",
+    role: "Founder",
+    org: "Beyond Change Advisory",
   },
   {
-    name: "Ryan Cheng",
-    role: "Legal operations lead",
-    org: "Vertex Technologies",
+    name: "Du Jinsong",
+    role: "Proposed speaker",
+    org: "Profile wording TBC",
   },
 ];
 
 const panels = [
   {
-    time: "10:00",
-    title: "Panel 1: The AI-augmented first five years",
+    time: "13:40",
+    title: "Frontier Legal AI Landscape",
     summary:
-      "How junior lawyers can use AI tools responsibly while still building judgment, drafting instincts, and client confidence.",
-    moderator: "Elaine Yu, Senior Associate, Placeholder LLP",
+      "Frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong.",
+    moderator: "Rocky Li, Founder, Terracotta Cyber Solutions Limited",
     panelists: [
-      "Adrian Ng, Barrister, Placeholder Chambers",
-      "Sophia Leung, Legal Product Lead, Example AI",
-      "Michael Tam, Professional Support Lawyer, Sample & Co.",
+      "Jamie Tso, Founder, LegalQuants",
+      "Troy Song, Senior Associate, Disputes, Herbert Smith Freehills Kramer",
     ],
   },
   {
-    time: "11:30",
-    title: "Panel 2: Training, supervision, and professional duties",
+    time: "14:25",
+    title: "How to Study Law Effectively with AI",
     summary:
-      "What firms, chambers, universities, and supervisors should change as legal research and drafting become more automated.",
-    moderator: "Jonathan Cheung, Lecturer, City Law Faculty",
+      "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
+    moderator: "Moderator TBC",
     panelists: [
-      "Rachel Lam, Partner, Demo Legal",
-      "Iris Ho, General Counsel, Fictional FinTech",
-      "Kevin Ma, Trainee Solicitor, Placeholder Partners",
+      "Prof Benjamin Chen, HKU Law",
+      "Prof Stuart Hargreaves, CUHK Faculty of Law",
+      "Prof Wang Jiangyu, City University of Hong Kong",
+      "Law student representative TBC",
     ],
   },
   {
-    time: "14:00",
-    title: "Panel 3: Building a Hong Kong legal-tech career",
+    time: "16:10",
+    title: "Essential AI Skills for Young Lawyers",
     summary:
-      "Routes into legal technology, policy, product, legal operations, and AI-enabled practice for students and young lawyers.",
-    moderator: "Carmen Li, Founder, Young Lawyers Lab",
+      "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
+    moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
-      "Terence Kwok, Legal Engineer, Atlas LegalTech",
-      "Maya Shah, JD Candidate, Placeholder University",
-      "Oscar Pang, Counsel, Innovation & Policy Unit",
+      "Carl Li, Lead Innovation Lawyer - Asia, Linklaters",
+      "Linklaters associate TBC",
+      "Alan Chiu, Founding Partner, ELLALAN",
+      "Anissa Ng, profile wording TBC",
+      "Du Jinsong, profile wording TBC",
     ],
   },
 ];
 
-const sponsors = [
-  "Lead Knowledge Partner",
-  "Technology Partner",
-  "Student Access Sponsor",
-  "Networking Sponsor",
+const partners = [
+  {
+    name: "Terracotta Cyber Solutions Limited",
+    role: "Organiser",
+    note: "Confirmed organiser",
+    logo: "/terracotta-logo-light.png",
+    logoClassName: "terracottaLogo",
+  },
+  {
+    name: "HKU Law and Technology Centre",
+    role: "Co-organiser",
+    note: "Confirmed co-organiser",
+    logo: "/hku-lawtech-logo.svg",
+    logoClassName: "hkuLogo",
+  },
 ];
 
-const organizers = [
+type Organizer = {
+  name: string;
+  role: string;
+  note?: string;
+  logo?: string;
+  logoClassName?: string;
+};
+
+const organizers: Organizer[] = [
   {
-    name: "Grace Hui",
-    role: "Forum chair",
+    name: "Terracotta Cyber Solutions Limited",
+    role: "Organiser",
+    logo: "/terracotta-logo-light.png",
+    logoClassName: "terracottaLogo",
   },
   {
-    name: "Thomas Yip",
-    role: "Programme lead",
+    name: "HKU Law and Technology Centre",
+    role: "Co-organiser",
+    logo: "/hku-lawtech-logo.svg",
+    logoClassName: "hkuLogo",
   },
   {
-    name: "Vivian Law",
-    role: "Partnerships lead",
+    name: "Linklaters (Hong Kong)",
+    role: "Proposed corporate sponsor",
   },
   {
-    name: "Owen Mak",
-    role: "Student engagement",
+    name: "HKU Law",
+    role: "Proposed venue host",
   },
+];
+
+const supportNotes = [
+  "Proposed corporate sponsor: Linklaters (Hong Kong)",
+  "Free admission for students and young practitioners",
 ];
 
 export default function Home() {
@@ -133,25 +162,24 @@ export default function Home() {
         <div className="heroShade" />
 
         <nav className="nav" aria-label="Primary navigation">
-          <a className="brand" href="#top" aria-label="AI for Young Lawyers forum home">
+          <a className="brand" href="#top" aria-label="AI for Young Lawyers Forum home">
             <span className="brandMark">AIYL</span>
-            <span>AI for Young Lawyers forum</span>
+            <span>AI for Young Lawyers Forum</span>
           </a>
           <div className="navLinks">
-            <a href="#guests">Guests</a>
+            <a href="#guests">Speakers</a>
             <a href="#rundown">Rundown</a>
-            <a href="#sponsors">Sponsors</a>
+            <a href="#sponsors">Partners</a>
             <a href="#team">Team</a>
           </div>
         </nav>
 
         <div className="heroContent">
           <p className="eyebrow">Legal technology / young lawyers / Hong Kong</p>
-          <h1>AI for Young Lawyers forum</h1>
+          <h1>AI for Young Lawyers Forum</h1>
           <p className="heroLead">
-            A focused forum for students, trainees, pupils, associates, and the
-            legal leaders shaping how artificial intelligence changes early-career
-            legal knowledge work.
+            A free afternoon forum for law students and young practitioners on how
+            AI is changing legal education, legal work, and early-career planning.
           </p>
 
           <div className="heroActions" aria-label="Forum actions">
@@ -160,7 +188,7 @@ export default function Home() {
               <ArrowRight size={18} strokeWidth={1.8} />
             </a>
             <a className="secondaryButton" href="#guests">
-              Meet the guests
+              Meet the speakers
             </a>
           </div>
         </div>
@@ -168,23 +196,23 @@ export default function Home() {
         <div className="eventStrip" aria-label="Forum overview">
           <div>
             <span>Date</span>
-            <strong>2026, TBA</strong>
+            <strong>Aug 8, Sat, 13:30-18:00</strong>
           </div>
           <div>
             <span>Venue</span>
-            <strong>Hong Kong, TBA</strong>
+            <strong>HKU, venue TBC</strong>
           </div>
           <div>
             <span>Format</span>
-            <strong>3 panels, breaks, networking</strong>
+            <strong>Panels, demos, tea break, networking</strong>
           </div>
         </div>
       </section>
 
       <section className="guestList" id="guests" aria-labelledby="guests-title">
         <div className="sectionHeader">
-          <p className="eyebrow dark">Guest list</p>
-          <h2 id="guests-title">People building the next legal workflow.</h2>
+          <p className="eyebrow dark">Proposed roster</p>
+          <h2 id="guests-title">Academics, practitioners, and legal-tech builders shaping the programme.</h2>
         </div>
         <div className="guestGrid">
           {guests.map((guest) => (
@@ -203,19 +231,27 @@ export default function Home() {
       <section className="rundown" id="rundown" aria-labelledby="rundown-title">
         <div className="rundownLead">
           <p className="eyebrow dark">Rundown</p>
-          <h2 id="rundown-title">Three panels, deliberate pauses, and one room that keeps talking.</h2>
+          <h2 id="rundown-title">An afternoon of practical AI education for future lawyers.</h2>
           <p>
-            The day is designed for early-career lawyers: practical, candid, and
-            paced with breaks so conversations can continue between sessions.
+            The programme is built around responsible AI use, legal education,
+            changing workflows, and skills that young lawyers can put to work.
           </p>
         </div>
 
         <div className="schedule" aria-label="Forum schedule">
           <div className="scheduleMoment">
-            <time>09:30</time>
+            <time>13:00</time>
             <div>
               <span>Arrival</span>
-              <h3>Registration and morning coffee</h3>
+              <h3>Registration</h3>
+            </div>
+          </div>
+
+          <div className="scheduleMoment">
+            <time>13:30</time>
+            <div>
+              <span>Opening</span>
+              <h3>Opening remarks</h3>
             </div>
           </div>
 
@@ -250,8 +286,19 @@ export default function Home() {
               {index < panels.length - 1 && (
                 <div className="scheduleBreak">
                   <Coffee size={20} strokeWidth={1.7} />
-                  <span>{index === 0 ? "11:00" : "13:00"}</span>
-                  <strong>{index === 0 ? "Coffee break" : "Lunch break"}</strong>
+                  <span>{index === 0 ? "14:20" : "15:10"}</span>
+                  <strong>{index === 0 ? "Session changeover" : "Tea break"}</strong>
+                </div>
+              )}
+
+              {index === 1 && (
+                <div className="scheduleMoment">
+                  <time>15:40</time>
+                  <div>
+                    <span>Demo session</span>
+                    <h3>Five-minute legal AI demos</h3>
+                    <p>Anissa Ng and Jamie Tso proposed.</p>
+                  </div>
                 </div>
               )}
             </div>
@@ -259,13 +306,14 @@ export default function Home() {
 
           <div className="networkingBlock">
             <Handshake size={28} strokeWidth={1.6} />
-            <time>15:30</time>
+            <time>16:50</time>
             <div>
-              <span>Closing session</span>
-              <h3>Networking reception</h3>
+              <span>Networking</span>
+              <h3>Networking session</h3>
               <p>
                 A relaxed end-of-day session for students, trainees, associates,
-                academics, sponsors, and speakers to continue the discussion.
+                academics, sponsors, and speakers to continue the discussion
+                downstairs in the hall.
               </p>
             </div>
           </div>
@@ -274,14 +322,26 @@ export default function Home() {
 
       <section className="sponsors" id="sponsors" aria-labelledby="sponsors-title">
         <div className="sectionHeader">
-          <p className="eyebrow dark">Sponsors</p>
-          <h2 id="sponsors-title">Supported by legal, academic, and technology partners.</h2>
+          <p className="eyebrow dark">Partners</p>
+          <h2 id="sponsors-title">Co-organised by</h2>
         </div>
         <div className="sponsorGrid">
-          {sponsors.map((sponsor) => (
-            <article className="sponsorCard" key={sponsor}>
+          {partners.map((partner) => (
+            <article className="sponsorCard logoSponsorCard" key={partner.name}>
+              <div className="partnerLogoPanel">
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className={partner.logoClassName}
+                />
+              </div>
+              <span>{partner.role}</span>
+            </article>
+          ))}
+          {supportNotes.map((note) => (
+            <article className="sponsorCard supportCard" key={note}>
               <img src="/sponsor-placeholder.svg" alt="" />
-              <span>{sponsor}</span>
+              <span>{note}</span>
             </article>
           ))}
         </div>
@@ -289,16 +349,26 @@ export default function Home() {
 
       <section className="organizers" id="team" aria-labelledby="team-title">
         <div className="teamIntro">
-          <p className="eyebrow">Organizing team</p>
-          <h2 id="team-title">Designed by a working group of young lawyers and legal-tech builders.</h2>
+          <p className="eyebrow">Organising team</p>
+          <h2 id="team-title">Built with academic, legal, and legal-tech partners in Hong Kong.</h2>
         </div>
         <div className="teamGrid">
           {organizers.map((person) => (
             <article className="teamCard" key={person.name}>
-              <img src="/portrait-placeholder.svg" alt="" />
+              {person.logo ? (
+                <div className="teamLogoPanel">
+                  <img
+                    src={person.logo}
+                    alt={person.name}
+                    className={person.logoClassName}
+                  />
+                </div>
+              ) : (
+                <img src="/portrait-placeholder.svg" alt="" />
+              )}
               <div>
-                <h3>{person.name}</h3>
-                <p>{person.role}</p>
+                <h3>{person.logo ? person.role : person.name}</h3>
+                <p>{person.logo ? person.note : person.role}</p>
               </div>
             </article>
           ))}
@@ -307,17 +377,17 @@ export default function Home() {
 
       <footer className="footer">
         <div>
-          <strong>AI for Young Lawyers forum</strong>
+          <strong>AI for Young Lawyers Forum</strong>
           <span>Law, technology, judgment, and the next generation of practice.</span>
         </div>
         <div className="footerMeta">
           <span>
             <CalendarDays size={16} strokeWidth={1.8} />
-            2026 forum
+            Aug 8, Sat
           </span>
           <span>
             <MapPin size={16} strokeWidth={1.8} />
-            Hong Kong
+            HKU, Hong Kong
           </span>
           <span>
             <Clock3 size={16} strokeWidth={1.8} />
