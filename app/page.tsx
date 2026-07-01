@@ -94,26 +94,37 @@ const panels = [
   },
 ];
 
-const partners = [
-  {
-    name: "Terracotta Cyber Solutions Limited",
-    role: "Lead Organiser",
-    note: "Terracotta",
-    logo: "/terracotta-logo-clean.png",
-    logoClassName: "terracottaLogo",
-  },
+type Partner = {
+  name: string;
+  role: string;
+  note?: string;
+  logo: string;
+  logoClassName: string;
+};
+
+const partners: Partner[] = [
   {
     name: "HKU Law and Technology Centre",
-    role: "Co-organiser",
-    note: "HKU Law and Technology Centre",
+    role: "HKU Law & Technology Centre",
     logo: "/hku-lawtech-logo.svg",
     logoClassName: "hkuLogo",
+  },
+  {
+    name: "Casebyte",
+    role: "Casebyte",
+    logo: "/casebyte-black-logo.svg",
+    logoClassName: "casebyteLogo",
   },
 ];
 
 const supportNotes = [
-  "Proposed corporate sponsor: Linklaters (Hong Kong)",
-  "Free admission for students and young practitioners",
+  {
+    title: "Proposed corporate sponsor",
+    note: "Linklaters (Hong Kong)",
+  },
+  {
+    title: "Free admission for students and young practitioners",
+  },
 ];
 
 export default function Home() {
@@ -290,8 +301,7 @@ export default function Home() {
 
       <section className="organizers" id="sponsors" aria-labelledby="sponsors-title">
         <div className="teamIntro">
-          <p className="eyebrow">Partners</p>
-          <h2 id="sponsors-title">Built with academic, legal, and industry partners in Hong Kong.</h2>
+          <p className="eyebrow" id="sponsors-title">Partners</p>
         </div>
         <div className="teamGrid">
           {partners.map((partner) => (
@@ -309,12 +319,12 @@ export default function Home() {
               </div>
             </article>
           ))}
-          {supportNotes.map((note) => (
-            <article className="teamCard" key={note}>
+          {supportNotes.map((item) => (
+            <article className="teamCard" key={item.title}>
               <img src="/portrait-placeholder.svg" alt="" />
               <div>
-                <h3>{note.split(":")[0]}</h3>
-                <p>{note.includes(":") ? note.split(":").slice(1).join(":").trim() : note}</p>
+                <h3>{item.title}</h3>
+                {item.note ? <p>{item.note}</p> : null}
               </div>
             </article>
           ))}
