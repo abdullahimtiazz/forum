@@ -97,48 +97,17 @@ const panels = [
 const partners = [
   {
     name: "Terracotta Cyber Solutions Limited",
-    role: "Organiser",
-    note: "Confirmed organiser",
+    role: "Lead Organiser",
+    note: "Terracotta Cyber Solutions Limited",
     logo: "/terracotta-logo-light.png",
     logoClassName: "terracottaLogo",
   },
   {
     name: "HKU Law and Technology Centre",
     role: "Co-organiser",
-    note: "Confirmed co-organiser",
+    note: "HKU Law and Technology Centre",
     logo: "/hku-lawtech-logo.svg",
     logoClassName: "hkuLogo",
-  },
-];
-
-type Organizer = {
-  name: string;
-  role: string;
-  note?: string;
-  logo?: string;
-  logoClassName?: string;
-};
-
-const organizers: Organizer[] = [
-  {
-    name: "Terracotta Cyber Solutions Limited",
-    role: "Organiser",
-    logo: "/terracotta-logo-light.png",
-    logoClassName: "terracottaLogo",
-  },
-  {
-    name: "HKU Law and Technology Centre",
-    role: "Co-organiser",
-    logo: "/hku-lawtech-logo.svg",
-    logoClassName: "hkuLogo",
-  },
-  {
-    name: "Linklaters (Hong Kong)",
-    role: "Proposed corporate sponsor",
-  },
-  {
-    name: "HKU Law",
-    role: "Proposed venue host",
   },
 ];
 
@@ -170,7 +139,6 @@ export default function Home() {
             <a href="#guests">Speakers</a>
             <a href="#rundown">Rundown</a>
             <a href="#sponsors">Partners</a>
-            <a href="#team">Team</a>
           </div>
         </nav>
 
@@ -257,7 +225,7 @@ export default function Home() {
 
           {panels.map((panel, index) => (
             <div className="scheduleGroup" key={panel.title}>
-              <details className="panelDetail" open={index === 0}>
+              <details className="panelDetail">
                 <summary>
                   <time>{panel.time}</time>
                   <div>
@@ -320,55 +288,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="sponsors" id="sponsors" aria-labelledby="sponsors-title">
-        <div className="sectionHeader">
-          <p className="eyebrow dark">Partners</p>
-          <h2 id="sponsors-title">Co-organised by</h2>
+      <section className="organizers" id="sponsors" aria-labelledby="sponsors-title">
+        <div className="teamIntro">
+          <p className="eyebrow">Partners</p>
+          <h2 id="sponsors-title">Built with academic, legal, and industry partners in Hong Kong.</h2>
         </div>
-        <div className="sponsorGrid">
+        <div className="teamGrid">
           {partners.map((partner) => (
-            <article className="sponsorCard logoSponsorCard" key={partner.name}>
-              <div className="partnerLogoPanel">
+            <article className="teamCard logoTeamCard" key={partner.name}>
+              <div className="teamLogoPanel">
                 <img
                   src={partner.logo}
                   alt={partner.name}
                   className={partner.logoClassName}
                 />
               </div>
-              <span>{partner.role}</span>
+              <div>
+                <h3>{partner.role}</h3>
+                <p>{partner.note}</p>
+              </div>
             </article>
           ))}
           {supportNotes.map((note) => (
-            <article className="sponsorCard supportCard" key={note}>
-              <img src="/sponsor-placeholder.svg" alt="" />
-              <span>{note}</span>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <section className="organizers" id="team" aria-labelledby="team-title">
-        <div className="teamIntro">
-          <p className="eyebrow">Organising team</p>
-          <h2 id="team-title">Built with academic, legal, and legal-tech partners in Hong Kong.</h2>
-        </div>
-        <div className="teamGrid">
-          {organizers.map((person) => (
-            <article className="teamCard" key={person.name}>
-              {person.logo ? (
-                <div className="teamLogoPanel">
-                  <img
-                    src={person.logo}
-                    alt={person.name}
-                    className={person.logoClassName}
-                  />
-                </div>
-              ) : (
-                <img src="/portrait-placeholder.svg" alt="" />
-              )}
+            <article className="teamCard" key={note}>
+              <img src="/portrait-placeholder.svg" alt="" />
               <div>
-                <h3>{person.logo ? person.role : person.name}</h3>
-                <p>{person.logo ? person.note : person.role}</p>
+                <h3>{note.split(":")[0]}</h3>
+                <p>{note.includes(":") ? note.split(":").slice(1).join(":").trim() : note}</p>
               </div>
             </article>
           ))}
