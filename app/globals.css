@@ -679,7 +679,7 @@ h1 {
 
 .teamGrid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -696,9 +696,10 @@ h1 {
 
 .logoTeamCard {
   grid-template-columns: 1fr;
-  min-height: 228px;
+  min-height: 148px;
   padding: 28px;
-  align-items: stretch;
+  align-items: center;
+  justify-items: center;
 }
 
 .teamCard img {
@@ -710,11 +711,10 @@ h1 {
 
 .teamLogoPanel {
   width: 100%;
-  min-height: 124px;
-  height: 100%;
+  min-height: 0;
   display: grid;
   place-items: center;
-  padding: 8px 0 12px;
+  padding: 0;
   border: 0;
   background: transparent;
 }
@@ -1349,6 +1349,7 @@ ul {
     grid-template-columns: 1fr;
     min-height: 0;
     padding: 24px;
+    place-items: center;
   }
 
   .logoTeamCard .teamLogoPanel {

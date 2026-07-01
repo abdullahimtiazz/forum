@@ -96,8 +96,6 @@ const panels = [
 
 type Partner = {
   name: string;
-  role: string;
-  note?: string;
   logo: string;
   logoClassName: string;
 };
@@ -105,13 +103,11 @@ type Partner = {
 const partners: Partner[] = [
   {
     name: "HKU Law and Technology Centre",
-    role: "HKU Law & Technology Centre",
     logo: "/hku-lawtech-logo.svg",
     logoClassName: "hkuLogo",
   },
   {
     name: "Casebyte",
-    role: "Casebyte",
     logo: "/casebyte-black-logo.svg",
     logoClassName: "casebyteLogo",
   },
@@ -121,9 +117,6 @@ const supportNotes = [
   {
     title: "Proposed corporate sponsor",
     note: "Linklaters (Hong Kong)",
-  },
-  {
-    title: "Free admission for students and young practitioners",
   },
 ];
 
@@ -301,7 +294,7 @@ export default function Home() {
 
       <section className="organizers" id="sponsors" aria-labelledby="sponsors-title">
         <div className="teamIntro">
-          <p className="eyebrow" id="sponsors-title">Partners</p>
+          <p className="eyebrow" id="sponsors-title">Supporting organizations</p>
         </div>
         <div className="teamGrid">
           {partners.map((partner) => (
@@ -312,10 +305,6 @@ export default function Home() {
                   alt={partner.name}
                   className={partner.logoClassName}
                 />
-              </div>
-              <div>
-                <h3>{partner.role}</h3>
-                <p>{partner.note}</p>
               </div>
             </article>
           ))}
