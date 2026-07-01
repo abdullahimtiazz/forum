@@ -17,24 +17,9 @@ const guests = [
     org: "The University of Hong Kong",
   },
   {
-    name: "Stuart Hargreaves",
-    role: "Associate Dean (External Engagement) and Associate Professor",
-    org: "CUHK Faculty of Law",
-  },
-  {
     name: "Wang Jiangyu",
     role: "Professor of Law; Director, Centre for Chinese and Comparative Law",
     org: "City University of Hong Kong",
-  },
-  {
-    name: "Carl Li",
-    role: "Lead Innovation Lawyer - Asia",
-    org: "Linklaters",
-  },
-  {
-    name: "Alan Chiu",
-    role: "Founding Partner",
-    org: "ELLALAN",
   },
   {
     name: "Anissa Ng",
@@ -42,20 +27,16 @@ const guests = [
     org: "LegalQuants / Sidley Austin wording TBC",
   },
   {
-    name: "Chandy Ye",
+    name: "Jamie Tso",
     role: "Founder",
-    org: "Beyond Change Advisory",
-  },
-  {
-    name: "Du Jinsong",
-    role: "Proposed speaker",
-    org: "Profile wording TBC",
+    org: "LegalQuants",
   },
 ];
 
 const panels = [
   {
     time: "13:40",
+    kind: "Talk",
     title: "Frontier Legal AI Landscape",
     summary:
       "Frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong.",
@@ -73,7 +54,7 @@ const panels = [
     moderator: "Moderator TBC",
     panelists: [
       "Prof Benjamin Chen, HKU Law",
-      "Prof Stuart Hargreaves, CUHK Faculty of Law",
+      "CUHK Faculty of Law representative TBC",
       "Prof Wang Jiangyu, City University of Hong Kong",
       "Law student representative TBC",
     ],
@@ -83,13 +64,10 @@ const panels = [
     title: "Essential AI Skills for Young Lawyers",
     summary:
       "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
-    moderator: "Chandy Ye, Founder, Beyond Change Advisory",
+    moderator: "Moderator TBC",
     panelists: [
-      "Carl Li, Lead Innovation Lawyer - Asia, Linklaters",
-      "Linklaters associate TBC",
-      "Alan Chiu, Founding Partner, ELLALAN",
       "Anissa Ng, profile wording TBC",
-      "Du Jinsong, profile wording TBC",
+      "Other industry panelists TBC",
     ],
   },
 ];
@@ -110,13 +88,6 @@ const partners: Partner[] = [
     name: "Casebyte",
     logo: "/casebyte-black-logo.svg",
     logoClassName: "casebyteLogo",
-  },
-];
-
-const supportNotes = [
-  {
-    title: "Proposed corporate sponsor",
-    note: "Linklaters (Hong Kong)",
   },
 ];
 
@@ -168,15 +139,15 @@ export default function Home() {
         <div className="eventStrip" aria-label="Forum overview">
           <div>
             <span>Date</span>
-            <strong>Aug 8, Sat, 13:30-18:00</strong>
+            <strong>Aug 8, Sat</strong>
+          </div>
+          <div>
+            <span>Time</span>
+            <strong>13:30-18:00</strong>
           </div>
           <div>
             <span>Venue</span>
-            <strong>HKU, venue TBC</strong>
-          </div>
-          <div>
-            <span>Format</span>
-            <strong>Panels, demos, tea break, networking</strong>
+            <strong>Philip K.H. Wong Theatre, HKU</strong>
           </div>
         </div>
       </section>
@@ -184,7 +155,7 @@ export default function Home() {
       <section className="guestList" id="guests" aria-labelledby="guests-title">
         <div className="sectionHeader">
           <p className="eyebrow dark">Proposed roster</p>
-          <h2 id="guests-title">Academics, practitioners, and legal-tech builders shaping the programme.</h2>
+          <h2 id="guests-title">Speakers</h2>
         </div>
         <div className="guestGrid">
           {guests.map((guest) => (
@@ -203,7 +174,7 @@ export default function Home() {
       <section className="rundown" id="rundown" aria-labelledby="rundown-title">
         <div className="rundownLead">
           <p className="eyebrow dark">Rundown</p>
-          <h2 id="rundown-title">An afternoon of practical AI education for future lawyers.</h2>
+          <h2 id="rundown-title">Programme</h2>
           <p>
             The programme is built around responsible AI use, legal education,
             changing workflows, and skills that young lawyers can put to work.
@@ -233,7 +204,7 @@ export default function Home() {
                 <summary>
                   <time>{panel.time}</time>
                   <div>
-                    <span>Click to expand</span>
+                    <span>{panel.kind ?? "Panel"}</span>
                     <h3>{panel.title}</h3>
                     <p>{panel.summary}</p>
                   </div>
@@ -269,7 +240,7 @@ export default function Home() {
                   <div>
                     <span>Demo session</span>
                     <h3>Five-minute legal AI demos</h3>
-                    <p>Anissa Ng and Jamie Tso proposed.</p>
+                    {/* <p>Anissa Ng and Jamie Tso proposed.</p> */}
                   </div>
                 </div>
               )}
@@ -308,15 +279,6 @@ export default function Home() {
               </div>
             </article>
           ))}
-          {supportNotes.map((item) => (
-            <article className="teamCard" key={item.title}>
-              <img src="/portrait-placeholder.svg" alt="" />
-              <div>
-                <h3>{item.title}</h3>
-                {item.note ? <p>{item.note}</p> : null}
-              </div>
-            </article>
-          ))}
         </div>
       </section>
 
@@ -325,24 +287,7 @@ export default function Home() {
           <strong>AI for Young Lawyers Forum</strong>
           <span>Law, technology, judgment, and the next generation of practice.</span>
         </div>
-        <div className="footerMeta">
-          <span>
-            <CalendarDays size={16} strokeWidth={1.8} />
-            Aug 8, Sat
-          </span>
-          <span>
-            <MapPin size={16} strokeWidth={1.8} />
-            HKU, Hong Kong
-          </span>
-          <span>
-            <Clock3 size={16} strokeWidth={1.8} />
-            Half-day programme
-          </span>
-          <span>
-            <UsersRound size={16} strokeWidth={1.8} />
-            Young legal community
-          </span>
-        </div>
+
       </footer>
     </main>
   );

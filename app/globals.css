@@ -202,7 +202,7 @@ h1 {
   padding: 0 18px;
   border: 1px solid transparent;
   font-size: 0.86rem;
-  font-weight: 800;
+  font-weight: 650;
   text-transform: uppercase;
   letter-spacing: 0.1em;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
@@ -233,7 +233,7 @@ h1 {
   width: min(1180px, calc(100% - 40px));
   margin: 0 auto 34px;
   display: grid;
-  grid-template-columns: 0.8fr 1fr 1.45fr;
+  grid-template-columns: 0.85fr 0.75fr 1fr;
   border: 1px solid rgba(255, 250, 240, 0.26);
   background: rgba(5, 16, 15, 0.54);
   backdrop-filter: blur(18px);
@@ -445,7 +445,7 @@ h1 {
   margin-bottom: 8px;
   color: rgba(18, 35, 31, 0.52);
   font-size: 0.72rem;
-  font-weight: 800;
+  font-weight: 650;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
@@ -678,8 +678,10 @@ h1 {
 }
 
 .teamGrid {
+  width: min(760px, 100%);
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
 }
 
@@ -732,6 +734,7 @@ h1 {
 .teamLogoPanel .casebyteLogo {
   width: min(100%, 260px);
   max-height: 74px;
+  transform: translateY(8px);
 }
 
 .teamLogoPanel .hkuLogo {
@@ -1198,11 +1201,6 @@ ul {
   }
 
   .eventStrip div:nth-child(2) {
-    border-right: 0;
-  }
-
-  .eventStrip div:nth-child(3) {
-    grid-column: 1 / -1;
     border-right: 0;
   }
 
