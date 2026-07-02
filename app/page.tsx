@@ -139,7 +139,7 @@ export default function Home() {
         <div className="eventStrip" aria-label="Forum overview">
           <div>
             <span>Date</span>
-            <strong>Aug 8, Sat</strong>
+            <strong>Aug 15, Sat</strong>
           </div>
           <div>
             <span>Time</span>
