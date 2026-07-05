@@ -47,7 +47,7 @@ const guests = [
     org: "Beyond Change Advisory",
   },
   {
-    name: "Wilfred",
+    name: "Wilfred Kwong",
     role: "In-house Counsel",
     org: "HAECO",
   },
@@ -87,7 +87,7 @@ const panels = [
       "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
-      "Wilfred, In-house Counsel, HAECO",
+      "Wilfred Kwong, In-house Counsel, HAECO",
       "I-firm panelist TBC",
       "Barrister panelist TBC",
       "Industry panelist TBC",
