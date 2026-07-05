@@ -697,11 +697,28 @@ h1 {
 }
 
 .logoTeamCard {
+  position: relative;
   grid-template-columns: 1fr;
   min-height: 148px;
   padding: 28px;
   align-items: center;
   justify-items: center;
+  overflow: hidden;
+  transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.logoTeamCard:hover,
+.logoTeamCard:focus-visible {
+  transform: translateY(-5px);
+  border-color: rgba(123, 35, 28, 0.34);
+  background: rgba(255, 250, 240, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.logoTeamCard:focus-visible {
+  outline: 2px solid var(--cedar);
+  outline-offset: 4px;
 }
 
 .teamCard img {
