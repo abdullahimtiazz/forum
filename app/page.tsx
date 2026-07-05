@@ -85,7 +85,7 @@ const panels = [
     title: "Essential AI Skills for Young Lawyers",
     summary:
       "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
-    moderator: "Chandy Ye",
+    moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred, In-house Counsel, HAECO",
       "I-firm panelist TBC",
