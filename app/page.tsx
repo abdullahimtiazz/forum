@@ -99,9 +99,9 @@ const panels = [
   },
   {
     time: "16:20-17:20",
-    title: "Essential AI Skills for Young Lawyers",
+    title: "Essential AI Skills for Future Lawyers",
     summary:
-      "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
+      "How AI changes day-to-day legal work and what skills future lawyers should build for the AI era.",
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred Kwong, Head of Group Legal, HAECO",
@@ -146,7 +146,7 @@ const partners: Partner[] = [
   },
   {
     name: "Casebyte",
-    href: "https://casebyte.ai/?utm_source=ai_young_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations",
+    href: "https://casebyte.ai/?utm_source=ai_future_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations",
     logo: "/casebyte-black-logo.svg",
     logoClassName: "casebyteLogo",
   },
@@ -167,9 +167,9 @@ export default function Home() {
         <div className="heroShade" />
 
         <nav className="nav" aria-label="Primary navigation">
-          <a className="brand" href="#top" aria-label="AI for Young Lawyers Forum home">
-            <span className="brandMark">AIYL</span>
-            <span>AI for Young Lawyers Forum</span>
+          <a className="brand" href="#top" aria-label="AI for Future Lawyers Forum home">
+            <span className="brandMark">AIFL</span>
+            <span>AI for Future Lawyers Forum</span>
           </a>
           <div className="navLinks">
             <a href="#guests">Speakers</a>
@@ -179,8 +179,8 @@ export default function Home() {
         </nav>
 
         <div className="heroContent">
-          <p className="eyebrow">Legal technology / young lawyers / Hong Kong</p>
-          <h1>AI for Young Lawyers Forum</h1>
+          <p className="eyebrow">Legal technology / future lawyers / Hong Kong</p>
+          <h1>AI for Future Lawyers Forum</h1>
           <p className="heroLead">
             A free afternoon forum for law students and young practitioners on how
             AI is changing legal education, legal work, and early-career planning.
@@ -238,7 +238,7 @@ export default function Home() {
           <h2 id="rundown-title">Programme</h2>
           <p>
             The programme is built around responsible AI use, legal education,
-            changing workflows, and skills that young lawyers can put to work.
+            changing workflows, and skills that future lawyers can put to work.
           </p>
         </div>
 
@@ -378,7 +378,7 @@ export default function Home() {
 
       <footer className="footer">
         <div>
-          <strong>AI for Young Lawyers Forum</strong>
+          <strong>AI for Future Lawyers Forum</strong>
           <span>Law, technology, judgment, and the next generation of practice.</span>
         </div>
 
