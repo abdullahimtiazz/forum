@@ -12,11 +12,6 @@ import {
 
 const guests = [
   {
-    name: "Rocky Li",
-    role: "Founder",
-    org: "Terracotta",
-  },
-  {
     name: "Benjamin Chen",
     role: "Professor of Law; Director, Law and Technology Centre",
     org: "The University of Hong Kong",
@@ -50,6 +45,11 @@ const guests = [
     name: "Wilfred Kwong",
     role: "In-house Counsel",
     org: "HAECO",
+  },
+  {
+    name: "Rocky Li",
+    role: "Founder",
+    org: "Terracotta",
   },
 ];
 
