@@ -44,7 +44,7 @@ const guests = [
   },
   {
     name: "Wilfred Kwong",
-    role: "In-house Counsel",
+    role: "Head of Group Legal",
     org: "HAECO",
   },
   {
