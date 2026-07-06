@@ -33,8 +33,9 @@ const guests = [
   },
   {
     name: "Troy Song",
-    role: "Senior Associate, Disputes",
+    role: "International Arbitration Lawyer",
     org: "Herbert Smith Freehills Kramer",
+    image: "/troy-song.jpg",
   },
   {
     name: "Chandy Ye",
@@ -186,7 +187,7 @@ export default function Home() {
         <div className="guestGrid">
           {guests.map((guest) => (
             <article className="guestCard" key={guest.name}>
-              <img src="/portrait-placeholder.svg" alt="" />
+              <img src={guest.image ?? "/portrait-placeholder.svg"} alt="" />
               <div>
                 <h3>{guest.name}</h3>
                 <p>{guest.role}</p>
