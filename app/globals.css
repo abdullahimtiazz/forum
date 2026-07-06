@@ -517,9 +517,9 @@ h1 {
 
 .panelPeople.speakerOnly {
   grid-template-columns: minmax(0, 620px);
-  justify-content: center;
-  padding-left: 24px;
-  padding-right: 24px;
+  justify-content: start;
+  padding-left: 148px;
+  padding-right: 76px;
 }
 
 .panelPeople > div {
