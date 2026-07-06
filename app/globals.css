@@ -424,7 +424,7 @@ h1 {
 
 .scheduleMoment {
   display: grid;
-  grid-template-columns: 100px 1fr;
+  grid-template-columns: 132px 1fr;
   gap: 24px;
   padding: 24px;
 }
@@ -475,7 +475,7 @@ h1 {
 
 .panelDetail summary {
   display: grid;
-  grid-template-columns: 100px 1fr 28px;
+  grid-template-columns: 132px 1fr 28px;
   gap: 24px;
   align-items: start;
   padding: 26px 24px;
@@ -508,7 +508,7 @@ h1 {
 .panelPeople {
   display: grid;
   gap: 18px;
-  padding: 0 24px 24px 148px;
+  padding: 0 24px 24px 180px;
 }
 
 .panelPeople.withModerator {
@@ -518,7 +518,7 @@ h1 {
 .panelPeople.speakerOnly {
   grid-template-columns: minmax(0, 620px);
   justify-content: start;
-  padding-left: 148px;
+  padding-left: 180px;
   padding-right: 76px;
 }
 
@@ -558,10 +558,22 @@ h1 {
   padding-top: 0;
 }
 
+.demoSpeakerName,
+.demoSpeakerSubtitle {
+  display: block;
+}
+
+.demoSpeakerSubtitle {
+  margin-top: 6px;
+  color: rgba(18, 35, 31, 0.62);
+  font-size: 0.92rem;
+  line-height: 1.48;
+}
+
 .scheduleBreak {
   min-height: 72px;
   display: grid;
-  grid-template-columns: 28px 100px 1fr;
+  grid-template-columns: 28px 132px 1fr;
   align-items: center;
   gap: 18px;
   padding: 0 24px;
@@ -1335,6 +1347,7 @@ ul {
   }
 
   .panelPeople.speakerOnly {
+    padding-left: 22px;
     padding-right: 22px;
   }
 
