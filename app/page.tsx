@@ -88,7 +88,7 @@ const panels = [
       "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
-      "Wilfred Kwong, In-house Counsel, HAECO",
+      "Wilfred Kwong, Head of Group Legal, HAECO",
       "I-firm panelist TBC",
       "Barrister panelist TBC",
       "Industry panelist TBC",
