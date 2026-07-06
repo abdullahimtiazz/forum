@@ -54,8 +54,9 @@ const guests = [
   },
   {
     name: "Anissa Ng",
-    role: "Legal AI Demo Speaker",
+    role: "Sidley Austin corporate associate turned product manager",
     org: "",
+    image: "/anissa-ng.jpeg",
   },
   {
     name: "Gallant Guo",
@@ -71,7 +72,7 @@ const guests = [
 
 const panels = [
   {
-    time: "13:40",
+    time: "13:40-14:20",
     kind: "Talk",
     title: "Frontier Legal AI Landscape",
     summary:
@@ -84,8 +85,8 @@ const panels = [
     ],
   },
   {
-    time: "14:35",
-    title: "How to Study Law Effectively with AI",
+    time: "14:25-15:15",
+    title: "Experimenting with Legal AI education",
     summary:
       "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
     participantsLabel: "Speakers",
@@ -97,10 +98,10 @@ const panels = [
     ],
   },
   {
-    time: "16:30",
-    title: "Essential AI Skills for Young Lawyers",
+    time: "16:20-17:20",
+    title: "Essential AI Skills for Future Lawyers",
     summary:
-      "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
+      "How AI changes day-to-day legal work and what skills future lawyers should build for the AI era.",
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred Kwong, Head of Group Legal, HAECO",
@@ -112,13 +113,21 @@ const panels = [
 ];
 
 const demoSession = {
-  time: "16:00",
+  time: "16:00-16:20",
   kind: "Demo session",
   title: "5-min demos of Legal AI tools",
   summary:
     "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
   participantsLabel: "Speakers",
-  panelists: ["Anissa Ng", "Gallant Guo", "Leona Zhang"],
+  panelists: [
+    {
+      name: "Anissa Ng",
+      subtitle:
+        "HKEx Size Tests Assistant - extracts financials from annual reports with page citations, pulls HKEx market data and BOC FX rates, applies listing rules, and auto-fills size test metrics.",
+    },
+    { name: "Gallant Guo" },
+    { name: "Leona Zhang" },
+  ],
 };
 
 type Partner = {
@@ -137,7 +146,7 @@ const partners: Partner[] = [
   },
   {
     name: "Casebyte",
-    href: "https://casebyte.ai/?utm_source=ai_young_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations",
+    href: "https://casebyte.ai/?utm_source=ai_future_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations",
     logo: "/casebyte-black-logo.svg",
     logoClassName: "casebyteLogo",
   },
@@ -158,9 +167,9 @@ export default function Home() {
         <div className="heroShade" />
 
         <nav className="nav" aria-label="Primary navigation">
-          <a className="brand" href="#top" aria-label="AI for Young Lawyers Forum home">
-            <span className="brandMark">AIYL</span>
-            <span>AI for Young Lawyers Forum</span>
+          <a className="brand" href="#top" aria-label="AI for Future Lawyers Forum home">
+            <span className="brandMark">AIFL</span>
+            <span>AI for Future Lawyers Forum</span>
           </a>
           <div className="navLinks">
             <a href="#guests">Speakers</a>
@@ -170,8 +179,8 @@ export default function Home() {
         </nav>
 
         <div className="heroContent">
-          <p className="eyebrow">Legal technology / young lawyers / Hong Kong</p>
-          <h1>AI for Young Lawyers Forum</h1>
+          <p className="eyebrow">Legal technology / future lawyers / Hong Kong</p>
+          <h1>AI for Future Lawyers Forum</h1>
           <p className="heroLead">
             A free afternoon forum for law students and young practitioners on how
             AI is changing legal education, legal work, and early-career planning.
@@ -195,7 +204,7 @@ export default function Home() {
           </div>
           <div>
             <span>Time</span>
-            <strong>13:30-18:00</strong>
+            <strong>13:00-18:00</strong>
           </div>
           <div>
             <span>Venue</span>
@@ -229,13 +238,13 @@ export default function Home() {
           <h2 id="rundown-title">Programme</h2>
           <p>
             The programme is built around responsible AI use, legal education,
-            changing workflows, and skills that young lawyers can put to work.
+            changing workflows, and skills that future lawyers can put to work.
           </p>
         </div>
 
         <div className="schedule" aria-label="Forum schedule">
           <div className="scheduleMoment">
-            <time>13:00</time>
+            <time>13:00-13:30</time>
             <div>
               <span>Arrival</span>
               <h3>Registration</h3>
@@ -243,7 +252,7 @@ export default function Home() {
           </div>
 
           <div className="scheduleMoment">
-            <time>13:30</time>
+            <time>13:30-13:40</time>
             <div>
               <span>Opening</span>
               <h3>Opening remarks</h3>
@@ -287,7 +296,7 @@ export default function Home() {
               {index < panels.length - 1 && (
                 <div className="scheduleBreak">
                   <Coffee size={20} strokeWidth={1.7} />
-                  <span>{index === 0 ? "14:25" : "15:30"}</span>
+                  <span>{index === 0 ? "14:20-14:25" : "15:20-15:50"}</span>
                   <strong>{index === 0 ? "Session changeover" : "Tea break"}</strong>
                 </div>
               )}
@@ -308,7 +317,14 @@ export default function Home() {
                       <strong>{demoSession.participantsLabel}</strong>
                       <ul>
                         {demoSession.panelists.map((panelist) => (
-                          <li key={panelist}>{panelist}</li>
+                          <li key={panelist.name}>
+                            <span className="demoSpeakerName">{panelist.name}</span>
+                            {panelist.subtitle && (
+                              <span className="demoSpeakerSubtitle">
+                                {panelist.subtitle}
+                              </span>
+                            )}
+                          </li>
                         ))}
                       </ul>
                     </div>
@@ -362,7 +378,7 @@ export default function Home() {
 
       <footer className="footer">
         <div>
-          <strong>AI for Young Lawyers Forum</strong>
+          <strong>AI for Future Lawyers Forum</strong>
           <span>Law, technology, judgment, and the next generation of practice.</span>
         </div>
 
