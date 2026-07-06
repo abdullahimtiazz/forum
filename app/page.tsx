@@ -52,6 +52,21 @@ const guests = [
     role: "Founder",
     org: "Terracotta",
   },
+  {
+    name: "Anissa Ng",
+    role: "Legal AI Demo Speaker",
+    org: "",
+  },
+  {
+    name: "Gallant Guo",
+    role: "Legal AI Demo Speaker",
+    org: "",
+  },
+  {
+    name: "Leona Zhang",
+    role: "Legal AI Demo Speaker",
+    org: "",
+  },
 ];
 
 const panels = [
@@ -64,7 +79,7 @@ const panels = [
     participantsLabel: "Speakers",
     panelists: [
       "Jamie Tso, Founder, LegalQuants",
-      "Troy Song, Senior Associate, Disputes, Herbert Smith Freehills Kramer",
+      "Troy Song, Senior Associate, Disputes",
       "Rocky Li, Founder, Terracotta",
     ],
   },
@@ -95,6 +110,16 @@ const panels = [
     ],
   },
 ];
+
+const demoSession = {
+  time: "16:00",
+  kind: "Demo session",
+  title: "5-min demos of Legal AI tools",
+  summary:
+    "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
+  participantsLabel: "Speakers",
+  panelists: ["Anissa Ng", "Gallant Guo", "Leona Zhang"],
+};
 
 type Partner = {
   name: string;
@@ -237,7 +262,11 @@ export default function Home() {
                   </div>
                   <ChevronDown size={22} strokeWidth={1.7} aria-hidden="true" />
                 </summary>
-                <div className="panelPeople">
+                <div
+                  className={`panelPeople ${
+                    panel.moderator ? "withModerator" : "speakerOnly"
+                  }`}
+                >
                   {panel.moderator && (
                     <div>
                       <strong>Moderator</strong>
@@ -264,13 +293,27 @@ export default function Home() {
               )}
 
               {index === 1 && (
-                <div className="scheduleMoment">
-                  <time>16:00</time>
-                  <div>
-                    <span>Demo session</span>
-                    <h3>5-min demos of Legal AI tools</h3>
+                <details className="panelDetail">
+                  <summary>
+                    <time>{demoSession.time}</time>
+                    <div>
+                      <span>{demoSession.kind}</span>
+                      <h3>{demoSession.title}</h3>
+                      <p>{demoSession.summary}</p>
+                    </div>
+                    <ChevronDown size={22} strokeWidth={1.7} aria-hidden="true" />
+                  </summary>
+                  <div className="panelPeople speakerOnly">
+                    <div>
+                      <strong>{demoSession.participantsLabel}</strong>
+                      <ul>
+                        {demoSession.panelists.map((panelist) => (
+                          <li key={panelist}>{panelist}</li>
+                        ))}
+                      </ul>
+                    </div>
                   </div>
-                </div>
+                </details>
               )}
             </div>
           ))}
