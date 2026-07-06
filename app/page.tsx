@@ -34,7 +34,7 @@ const guests = [
   {
     name: "Troy Song",
     role: "International Arbitration Lawyer",
-    org: "Herbert Smith Freehills Kramer",
+    org: "",
     image: "/troy-song.jpg",
   },
   {
@@ -61,10 +61,11 @@ const panels = [
     title: "Frontier Legal AI Landscape",
     summary:
       "Frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong.",
-    moderator: "Rocky Li, Founder, Terracotta",
+    participantsLabel: "Speakers",
     panelists: [
       "Jamie Tso, Founder, LegalQuants",
       "Troy Song, Senior Associate, Disputes, Herbert Smith Freehills Kramer",
+      "Rocky Li, Founder, Terracotta",
     ],
   },
   {
@@ -72,7 +73,6 @@ const panels = [
     title: "How to Study Law Effectively with AI",
     summary:
       "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
-    moderator: "Moderator TBC",
     participantsLabel: "Speakers",
     panelists: [
       "Prof Benjamin Chen, HKU",
@@ -191,7 +191,7 @@ export default function Home() {
               <div>
                 <h3>{guest.name}</h3>
                 <p>{guest.role}</p>
-                <span>{guest.org}</span>
+                {guest.org && <span>{guest.org}</span>}
               </div>
             </article>
           ))}
