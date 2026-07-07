@@ -13,60 +13,53 @@ import {
 const guests = [
   {
     name: "Benjamin Chen",
-    role: "Professor of Law; Director, Law and Technology Centre",
-    org: "The University of Hong Kong",
+    title: "Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
   },
   {
     name: "Stuart Hargreaves",
-    role: "Professor of Law",
-    org: "The Chinese University of Hong Kong",
+    title: "Professor of Law, The Chinese University of Hong Kong",
   },
   {
     name: "Wang Jiangyu",
-    role: "Professor of Law; Director, Centre for Chinese and Comparative Law",
-    org: "City University of Hong Kong",
+    title:
+      "Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong",
   },
   {
     name: "Jamie Tso",
-    role: "Founder",
-    org: "LegalQuants",
+    title: "Founder, LegalQuants",
   },
   {
     name: "Troy Song",
-    role: "International Arbitration Lawyer",
-    org: "",
+    title: "International Arbitration Lawyer",
     image: "/troy-song.jpg",
   },
   {
     name: "Chandy Ye",
-    role: "Founder",
-    org: "Beyond Change Advisory",
+    title:
+      "Founder of Beyond Change Advisory; Co-Chair of the International Association of Privacy Professionals (IAPP) KnowledgeNet Hong Kong Chapter",
+    image: "/chandy-ye.jpg",
   },
   {
     name: "Wilfred Kwong",
-    role: "Head of Group Legal",
-    org: "HAECO",
+    title: "Head of Group Legal, HAECO Group",
+    image: "/wilfred-kwong.jpg",
   },
   {
     name: "Rocky Li",
-    role: "Founder",
-    org: "Terracotta",
+    title: "Founder, Terracotta",
   },
   {
     name: "Anissa Ng",
-    role: "Sidley Austin corporate associate turned product manager",
-    org: "",
+    title: "Sidley Austin corporate associate turned product manager",
     image: "/anissa-ng.jpeg",
   },
   {
     name: "Gallant Guo",
-    role: "Legal AI Demo Speaker",
-    org: "",
+    title: "Legal AI Demo Speaker",
   },
   {
     name: "Leona Zhang",
-    role: "Legal AI Demo Speaker",
-    org: "",
+    title: "Legal AI Demo Speaker",
   },
 ];
 
@@ -224,8 +217,7 @@ export default function Home() {
               <img src={guest.image ?? "/portrait-placeholder.svg"} alt="" />
               <div>
                 <h3>{guest.name}</h3>
-                <p>{guest.role}</p>
-                {guest.org && <span>{guest.org}</span>}
+                <p>{guest.title}</p>
               </div>
             </article>
           ))}
