@@ -74,10 +74,6 @@ const guests = [
       "CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
     image: "/ian-chai.png",
   },
-  {
-    name: "Alan Chiu",
-    title: "TBC",
-  },
 ];
 
 const guestByName = new Map(guests.map((guest) => [guest.name, guest]));
@@ -91,7 +87,7 @@ const speakerGroups = [
   {
     label: "Panel 2",
     title: "Experimenting with Legal AI education",
-    speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu"],
+    speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu", "Ian Ernst Chai"],
   },
   {
     label: "Demo Session",
@@ -101,7 +97,7 @@ const speakerGroups = [
   {
     label: "Panel 3",
     title: "Essential AI Skills for Young Lawyers",
-    speakers: ["Chandy Ye", "Wilfred Kwong", "Ian Ernst Chai", "Alan Chiu"],
+    speakers: ["Chandy Ye", "Wilfred Kwong"],
   },
 ];
 
@@ -129,6 +125,7 @@ const panels = [
       "Prof Benjamin Chen, HKU",
       "Prof Stuart Hargreaves, CUHK",
       "Prof Wang Jiangyu, CityU",
+      "Ian Ernst Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
       "Panelist TBC",
     ],
   },
@@ -140,8 +137,6 @@ const panels = [
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred Kwong, Head of Group Legal, HAECO",
-      "Ian Ernst Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
-      "Alan Chiu, TBC",
       "I-firm panelist TBC",
       "Barrister panelist TBC",
       "Industry panelist TBC",
