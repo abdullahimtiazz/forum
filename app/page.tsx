@@ -14,19 +14,23 @@ const guests = [
   {
     name: "Benjamin Chen",
     title: "Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
+    image: "/benjamin-chen.jpeg",
   },
   {
     name: "Stuart Hargreaves",
     title: "Professor of Law, The Chinese University of Hong Kong",
+    image: "/stuart-hargreaves.jpeg",
   },
   {
     name: "Wang Jiangyu",
     title:
       "Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong",
+    image: "/wang-jiangyu.jpeg",
   },
   {
     name: "Jamie Tso",
     title: "Founder, LegalQuants",
+    image: "/jamie-tso.jpeg",
   },
   {
     name: "Troy Song",
@@ -47,6 +51,7 @@ const guests = [
   {
     name: "Rocky Li",
     title: "Founder, Terracotta",
+    image: "/rocky-li.jpeg",
   },
   {
     name: "Anissa Ng",
@@ -56,10 +61,18 @@ const guests = [
   {
     name: "Gallant Guo",
     title: "Legal AI Demo Speaker",
+    image: "/gallant-guo.png",
   },
   {
     name: "Leona Zhang",
     title: "Legal AI Demo Speaker",
+    image: "/leona-zhang.jpeg",
+  },
+  {
+    name: "Ian Chai",
+    title:
+      "CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
+    image: "/ian-chai.png",
   },
 ];
 
@@ -98,6 +111,7 @@ const panels = [
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred Kwong, Head of Group Legal, HAECO",
+      "Ian Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
       "I-firm panelist TBC",
       "Barrister panelist TBC",
       "Industry panelist TBC",
