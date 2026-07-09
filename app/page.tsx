@@ -86,12 +86,12 @@ const speakerGroups = [
   },
   {
     label: "Panel 2",
-    title: "Experimenting with Legal AI education",
+    title: "Experimenting with Legal AI in Education",
     speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu", "Ian Ernst Chai"],
   },
   {
     label: "Demo Session",
-    title: "5-min demos of Legal AI tools",
+    title: "Don't Wait for Legal Tech: Build Your Own",
     speakers: ["Anissa Ng", "Gallant Guo", "Leona Zhang"],
   },
   {
@@ -117,7 +117,7 @@ const panels = [
   },
   {
     time: "14:25-15:15",
-    title: "Experimenting with Legal AI education",
+    title: "Experimenting with Legal AI in Education",
     summary:
       "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
     participantsLabel: "Speakers",
@@ -147,7 +147,7 @@ const panels = [
 const demoSession = {
   time: "16:00-16:20",
   kind: "Demo session",
-  title: "5-min demos of Legal AI tools",
+  title: "Don't Wait for Legal Tech: Build Your Own",
   summary:
     "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
   participantsLabel: "Speakers",
