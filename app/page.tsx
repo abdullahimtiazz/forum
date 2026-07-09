@@ -14,19 +14,23 @@ const guests = [
   {
     name: "Benjamin Chen",
     title: "Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
+    image: "/benjamin-chen.jpeg",
   },
   {
     name: "Stuart Hargreaves",
     title: "Professor of Law, The Chinese University of Hong Kong",
+    image: "/stuart-hargreaves.jpeg",
   },
   {
     name: "Wang Jiangyu",
     title:
       "Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong",
+    image: "/wang-jiangyu.jpeg",
   },
   {
     name: "Jamie Tso",
     title: "Founder, LegalQuants",
+    image: "/jamie-tso.jpeg",
   },
   {
     name: "Troy Song",
@@ -47,6 +51,7 @@ const guests = [
   {
     name: "Rocky Li",
     title: "Founder, Terracotta",
+    image: "/rocky-li.jpeg",
   },
   {
     name: "Anissa Ng",
@@ -55,11 +60,48 @@ const guests = [
   },
   {
     name: "Gallant Guo",
-    title: "Legal AI Demo Speaker",
+    title: "Builder | Lawyer in One-Year Gap",
+    image: "/gallant-guo.png",
   },
   {
     name: "Leona Zhang",
-    title: "Legal AI Demo Speaker",
+    title: "Co-Founder, Terracotta",
+    image: "/leona-zhang.jpeg",
+  },
+  {
+    name: "Ian Ernst Chai",
+    title:
+      "CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
+    image: "/ian-chai.png",
+  },
+  {
+    name: "Alan Chiu",
+    title: "TBC",
+  },
+];
+
+const guestByName = new Map(guests.map((guest) => [guest.name, guest]));
+
+const speakerGroups = [
+  {
+    label: "Panel 1",
+    title: "Frontier Legal AI Landscape",
+    speakers: ["Jamie Tso", "Troy Song", "Rocky Li"],
+  },
+  {
+    label: "Panel 2",
+    title: "Experimenting with Legal AI education",
+    speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu"],
+  },
+  {
+    label: "Demo Session",
+    title: "5-min demos of Legal AI tools",
+    speakers: ["Anissa Ng", "Gallant Guo", "Leona Zhang"],
+  },
+  {
+    label: "Panel 3",
+    title: "Essential AI Skills for Young Lawyers",
+    speakers: ["Chandy Ye", "Wilfred Kwong", "Ian Ernst Chai", "Alan Chiu"],
   },
 ];
 
@@ -98,6 +140,8 @@ const panels = [
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred Kwong, Head of Group Legal, HAECO",
+      "Ian Ernst Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
+      "Alan Chiu, TBC",
       "I-firm panelist TBC",
       "Barrister panelist TBC",
       "Industry panelist TBC",
@@ -197,7 +241,7 @@ export default function Home() {
           </div>
           <div>
             <span>Time</span>
-            <strong>13:00-18:00</strong>
+            <strong>13:30-18:00</strong>
           </div>
           <div>
             <span>Venue</span>
@@ -211,15 +255,33 @@ export default function Home() {
           <p className="eyebrow dark">Confirmed roster</p>
           <h2 id="guests-title">Speakers</h2>
         </div>
-        <div className="guestGrid">
-          {guests.map((guest) => (
-            <article className="guestCard" key={guest.name}>
-              <img src={guest.image ?? "/portrait-placeholder.svg"} alt="" />
-              <div>
-                <h3>{guest.name}</h3>
-                <p>{guest.title}</p>
+        <div className="guestGroups">
+          {speakerGroups.map((group) => (
+            <section className="guestGroup" key={group.label} aria-label={group.title}>
+              <div className="guestGroupHeader">
+                <span>{group.label}</span>
+                <h3>{group.title}</h3>
               </div>
-            </article>
+              <div className="guestGrid">
+                {group.speakers.map((speakerName) => {
+                  const guest = guestByName.get(speakerName);
+
+                  if (!guest) {
+                    return null;
+                  }
+
+                  return (
+                    <article className="guestCard" key={guest.name}>
+                      <img src={guest.image ?? "/portrait-placeholder.svg"} alt="" />
+                      <div>
+                        <h3>{guest.name}</h3>
+                        <p>{guest.title}</p>
+                      </div>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
           ))}
         </div>
       </section>
