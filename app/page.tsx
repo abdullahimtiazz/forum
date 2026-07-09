@@ -241,7 +241,7 @@ export default function Home() {
           </div>
           <div>
             <span>Time</span>
-            <strong>13:00-18:00</strong>
+            <strong>13:30-18:00</strong>
           </div>
           <div>
             <span>Venue</span>
