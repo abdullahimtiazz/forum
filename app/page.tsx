@@ -13,12 +13,13 @@ import {
 const guests = [
   {
     name: "Benjamin Chen",
-    title: "Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
+    title:
+      "Associate Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
     image: "/benjamin-chen.jpeg",
   },
   {
     name: "Stuart Hargreaves",
-    title: "Professor of Law, The Chinese University of Hong Kong",
+    title: "Associate Professor of Law, The Chinese University of Hong Kong",
     image: "/stuart-hargreaves.jpeg",
   },
   {
