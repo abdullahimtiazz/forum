@@ -13,12 +13,13 @@ import {
 const guests = [
   {
     name: "Benjamin Chen",
-    title: "Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
+    title:
+      "Associate Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
     image: "/benjamin-chen.jpeg",
   },
   {
     name: "Stuart Hargreaves",
-    title: "Professor of Law, The Chinese University of Hong Kong",
+    title: "Associate Professor of Law, The Chinese University of Hong Kong",
     image: "/stuart-hargreaves.jpeg",
   },
   {
@@ -26,6 +27,11 @@ const guests = [
     title:
       "Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong",
     image: "/wang-jiangyu.jpeg",
+  },
+  {
+    name: "Brian Tang",
+    title: "Executive Director, LITE Lab@HKU",
+    image: "/brian-tang.jpg",
   },
   {
     name: "Jamie Tso",
@@ -87,7 +93,7 @@ const speakerGroups = [
   {
     label: "Panel 2",
     title: "Experimenting with Legal AI in Education",
-    speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu", "Ian Ernst Chai"],
+    speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu", "Brian Tang"],
   },
   {
     label: "Demo Session",
@@ -97,7 +103,7 @@ const speakerGroups = [
   {
     label: "Panel 3",
     title: "Essential AI Skills for Young Lawyers",
-    speakers: ["Chandy Ye", "Wilfred Kwong"],
+    speakers: ["Chandy Ye", "Wilfred Kwong", "Ian Ernst Chai"],
   },
 ];
 
@@ -125,7 +131,7 @@ const panels = [
       "Prof Benjamin Chen, HKU",
       "Prof Stuart Hargreaves, CUHK",
       "Prof Wang Jiangyu, CityU",
-      "Ian Ernst Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
+      "Brian Tang, Executive Director, LITE Lab@HKU",
       "Panelist TBC",
     ],
   },
@@ -137,6 +143,7 @@ const panels = [
     moderator: "Chandy Ye, Founder, Beyond Change Advisory",
     panelists: [
       "Wilfred Kwong, Head of Group Legal, HAECO",
+      "Ian Ernst Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
       "I-firm panelist TBC",
       "Barrister panelist TBC",
       "Industry panelist TBC",
@@ -240,7 +247,10 @@ export default function Home() {
           </div>
           <div>
             <span>Venue</span>
-            <strong>Philip K.H. Wong Theatre, HKU</strong>
+            <strong>
+              Philip K. H. Wong Theatre, 2/F Cheng Yu Tung Tower, The University
+              of Hong Kong
+            </strong>
           </div>
         </div>
       </section>
