@@ -1,0 +1,77 @@
+# Design QA
+
+## Comparison target
+
+- Source visual truth: `/Users/itsrocky/.codex/attachments/39ed196c-f365-4fca-a1eb-49132ce6bd74/image-1.png`
+- Motion reference captures: `/Users/itsrocky/Projects/forum/.source-capture/desktop/00-top.png`, `/Users/itsrocky/Projects/forum/.source-capture/mobile/00-top.png`, and `/Users/itsrocky/Projects/forum/.source-capture/mobile/menu-open.png`
+- Desktop implementation: `/Users/itsrocky/Projects/forum/.qa/desktop-top-final.png`
+- Mobile implementation: `/Users/itsrocky/Projects/forum/.qa/mobile-theme-v2.png`
+- Full-view comparison: `/Users/itsrocky/Projects/forum/.qa/comparison-overview-v1.png`
+- Focused comparison: `/Users/itsrocky/Projects/forum/.qa/comparison-green-v2.png`
+- Official graphical mark: `/Users/itsrocky/Downloads/aiyl.svg`
+- Official full lockup: `/Users/itsrocky/Downloads/aiyltext.svg`
+- Updated desktop lockup evidence: `/Users/itsrocky/Projects/forum/.qa/text-logo-desktop.png`
+- Updated mobile lockup evidence: `/Users/itsrocky/Projects/forum/.qa/text-logo-updated.png`
+- Updated footer evidence: `/Users/itsrocky/Projects/forum/.qa/text-logo-footer.png`
+- Viewports: 1280 x 720 desktop browser surface and 390 x 844 mobile
+- State: settled hero, settled green session, mobile menu open, and programme row expanded
+
+## Findings
+
+- No remaining P0, P1, or P2 findings.
+- [P3] The reference is a set of square promotional cards while the implementation is a responsive long-form event site. The four-color palette, Funnel Sans typography, strong brand lockup, image treatment, oversized translucent lettering, compact metadata, and dense editorial hierarchy are preserved while adapting the composition to scrolling web sections.
+- [P3] The site uses the live event's actual portrait crops. Minor crop differences from the example posters are intentional to keep all thirteen portraits consistent across desktop cards and mobile rails.
+
+## Required fidelity surfaces
+
+- Fonts and typography: Funnel Sans Variable is loaded locally through `@fontsource-variable/funnel-sans`. Display scale, dense letter spacing, compact metadata, and high-contrast weights match the supplied poster language.
+- Spacing and layout rhythm: full-viewport hero, large editorial pauses, compact section rules, poster-like speaker cards, sticky-feeling section transitions, and responsive horizontal rails are consistent and have no horizontal overflow at 390px.
+- Colors and visual tokens: blue, green, lavender/cobalt, and orange are mapped one-to-one to the four programme sections and reused in the programme interaction states.
+- Image quality and asset fidelity: all thirteen current speaker portraits and both supporter logos were copied from the live content source and render locally. The supplied official `aiyl.svg` is used for graphical marks and `aiyltext.svg` for every combined mark-and-name lockup. No portrait, logo, or decorative image placeholder remains.
+- Copy and content: speaker names, roles, session names, times, programme copy, venue, and supporter links were checked against `https://aiforyounglawyers.com`.
+- Icons: minimalist line icons are consistent across navigation, menu, accordions, supporter links, and CTAs.
+- Accessibility: semantic headings and regions, labelled navigation/buttons, visible hover and expanded states, reduced-motion support, alt text, and mobile tap targets are present.
+
+## Interaction and browser checks
+
+- Hero entrance animation settles correctly after the four color panels reveal.
+- Smooth hash navigation and scroll-linked hero motion work.
+- Mobile menu opens and closes with a clipped reveal transition.
+- Mobile speaker rails scroll horizontally without page-level horizontal overflow.
+- Programme rows expand/collapse and inherit their session color.
+- The final registration CTA links directly to `https://luma.com/3attxu5x`, opens in a new tab, and remains fully visible without horizontal overflow at 390px.
+- Desktop and mobile browser console: no runtime errors. The hero asset is explicitly eager-loaded; Next.js development mode still emits a contradictory LCP advisory even though the rendered image reports `loading="eager"`.
+- Production build: passed.
+
+## Comparison history
+
+### Pass 1
+
+- [P2] On mobile, the oversized background word was cropped too aggressively, leaving an ambiguous fragment rather than the recognizable poster-style `aiyl` motif.
+- Fix: repositioned the motif from the far right to the left edge and reduced it from `82vw` to `69vw`.
+- Post-fix evidence: `/Users/itsrocky/Projects/forum/.qa/mobile-theme-v2.png` and `/Users/itsrocky/Projects/forum/.qa/comparison-green-v2.png` show the wider wordform behind the session content without reducing readability.
+
+### Pass 2
+
+- Replaced all typographic approximations of the AIYL mark with the supplied official graphical SVG.
+- Replaced every combined graphical-mark-and-forum-name treatment in the header and footer with the corrected supplied `aiyltext.svg` lockup.
+- Removed the ordinal number pills from all speaker portraits.
+- Post-fix browser checks at 1280 x 720 and 390 x 844 confirm the corrected lockup, official decorative marks, zero speaker number badges, and no mobile horizontal overflow.
+
+### Pass 3
+
+- Added a dedicated end-of-page registration section between the supporters and footer.
+- The CTA uses the four programme colors as an animated edge treatment, a large editorial headline, the event date and location, and a prominent external registration button.
+- Desktop and 390 x 844 mobile browser checks confirm the registration link, responsive button sizing, clean section-to-footer transition, and zero runtime errors.
+
+### Pass 4
+
+- Removed a subpixel edge gap visible beneath Chandy Ye's portrait at reduced browser zoom by adding a minimal default image bleed inside every clipped speaker frame.
+- Preserved the portrait hover treatment by carrying the same one-percent bleed into its enlarged scale value.
+- Clipped the oversized hero mark to the hero boundary so its scroll-linked motion cannot bleed into the following introduction section on wide, zoomed-out layouts.
+
+## Follow-up polish
+
+- P3 only: final production capture will not show the small Next.js development indicator visible in local development screenshots.
+
+final result: passed

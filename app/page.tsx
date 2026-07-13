@@ -1,446 +1,390 @@
+"use client";
+
 import Image from "next/image";
-import {
-  ArrowRight,
-  CalendarDays,
-  ChevronDown,
-  Clock3,
-  Coffee,
-  Handshake,
-  MapPin,
-  UsersRound,
-} from "lucide-react";
+import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
+import { ArrowDown, ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { useState } from "react";
 
-const guests = [
-  {
-    name: "Benjamin Chen",
-    title:
-      "Associate Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
-    image: "/benjamin-chen.jpeg",
-  },
-  {
-    name: "Stuart Hargreaves",
-    title: "Associate Professor of Law, The Chinese University of Hong Kong",
-    image: "/stuart-hargreaves.jpeg",
-  },
-  {
-    name: "Wang Jiangyu",
-    title:
-      "Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong",
-    image: "/wang-jiangyu.jpeg",
-  },
-  {
-    name: "Brian Tang",
-    title: "Executive Director, LITE Lab@HKU",
-    image: "/brian-tang.jpg",
-  },
-  {
-    name: "Jamie Tso",
-    title: "Founder, LegalQuants",
-    image: "/jamie-tso.jpeg",
-  },
-  {
-    name: "Troy Song",
-    title: "International Arbitration Lawyer",
-    image: "/troy-song.jpg",
-  },
-  {
-    name: "Chandy Ye",
-    title:
-      "Founder of Beyond Change Advisory; Co-Chair of the International Association of Privacy Professionals (IAPP) KnowledgeNet Hong Kong Chapter",
-    image: "/chandy-ye.jpg",
-  },
-  {
-    name: "Wilfred Kwong",
-    title: "Head of Group Legal, HAECO Group",
-    image: "/wilfred-kwong.jpg",
-  },
-  {
-    name: "Rocky Li",
-    title: "Founder, Terracotta",
-    image: "/rocky-li.jpeg",
-  },
-  {
-    name: "Anissa Ng",
-    title: "Sidley Austin corporate associate turned product manager",
-    image: "/anissa-ng.jpeg",
-  },
-  {
-    name: "Gallant Guo",
-    title: "Builder | Lawyer in One-Year Gap",
-    image: "/gallant-guo.png",
-  },
-  {
-    name: "Leona Zhang",
-    title: "Co-Founder, Terracotta",
-    image: "/leona-zhang.jpeg",
-  },
-  {
-    name: "Ian Ernst Chai",
-    title:
-      "CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
-    image: "/ian-chai.png",
-  },
-];
+type Speaker = {
+  name: string;
+  role: string;
+  image: string;
+};
 
-const guestByName = new Map(guests.map((guest) => [guest.name, guest]));
+type Theme = {
+  id: string;
+  number: string;
+  label: string;
+  title: string;
+  kicker: string;
+  time: string;
+  summary: string;
+  className: string;
+  speakers: Speaker[];
+};
 
-const speakerGroups = [
+const themes: Theme[] = [
   {
-    label: "Panel 1",
+    id: "landscape",
+    number: "01",
+    label: "Talk",
     title: "Frontier Legal AI Landscape",
-    speakers: ["Jamie Tso", "Troy Song", "Rocky Li"],
-  },
-  {
-    label: "Panel 2",
-    title: "Experimenting with Legal AI in Education",
-    speakers: ["Benjamin Chen", "Stuart Hargreaves", "Wang Jiangyu", "Brian Tang"],
-  },
-  {
-    label: "Demo Session",
-    title: "Don't Wait for Legal Tech: Build Your Own",
-    speakers: ["Anissa Ng", "Gallant Guo", "Leona Zhang"],
-  },
-  {
-    label: "Panel 3",
-    title: "Essential AI Skills for Young Lawyers",
-    speakers: ["Chandy Ye", "Wilfred Kwong", "Ian Ernst Chai"],
-  },
-];
-
-const panels = [
-  {
-    time: "13:40-14:20",
-    kind: "Talk",
-    title: "Frontier Legal AI Landscape",
+    kicker: "What is possible now?",
+    time: "13:40–14:20",
     summary:
       "Frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong.",
-    participantsLabel: "Speakers",
-    panelists: [
-      "Jamie Tso, Founder, LegalQuants",
-      "Troy Song, Senior Associate, Disputes",
-      "Rocky Li, Founder, Terracotta",
+    className: "themeBlue",
+    speakers: [
+      { name: "Jamie Tso", role: "Founder, LegalQuants", image: "/jamie-tso.jpeg" },
+      { name: "Troy Song", role: "International Arbitration Lawyer", image: "/troy-song.jpg" },
+      { name: "Rocky Li", role: "Founder, Terracotta", image: "/rocky-li.jpeg" },
     ],
   },
   {
-    time: "14:25-15:15",
+    id: "education",
+    number: "02",
+    label: "Panel",
     title: "Experimenting with Legal AI in Education",
+    kicker: "How should we learn?",
+    time: "14:25–15:15",
     summary:
       "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
-    participantsLabel: "Speakers",
-    panelists: [
-      "Prof Benjamin Chen, HKU",
-      "Prof Stuart Hargreaves, CUHK",
-      "Prof Wang Jiangyu, CityU",
-      "Brian Tang, Executive Director, LITE Lab@HKU",
-      "Panelist TBC",
+    className: "themeGreen",
+    speakers: [
+      {
+        name: "Benjamin Chen",
+        role: "Associate Professor of Law; Director, Law and Technology Centre, The University of Hong Kong",
+        image: "/benjamin-chen.jpeg",
+      },
+      {
+        name: "Stuart Hargreaves",
+        role: "Associate Professor of Law, The Chinese University of Hong Kong",
+        image: "/stuart-hargreaves.jpeg",
+      },
+      {
+        name: "Wang Jiangyu",
+        role: "Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong",
+        image: "/wang-jiangyu.jpeg",
+      },
+      { name: "Brian Tang", role: "Executive Director, LITE Lab@HKU", image: "/brian-tang.jpg" },
     ],
   },
   {
-    time: "16:20-17:20",
+    id: "build",
+    number: "03",
+    label: "Demo session",
+    title: "Don’t Wait for Legal Tech: Build Your Own",
+    kicker: "What can you make?",
+    time: "16:00–16:20",
+    summary:
+      "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
+    className: "themeLilac",
+    speakers: [
+      {
+        name: "Anissa Ng",
+        role: "Sidley Austin corporate associate turned product manager",
+        image: "/anissa-ng.jpeg",
+      },
+      { name: "Gallant Guo", role: "Builder | Lawyer in One-Year Gap", image: "/gallant-guo.png" },
+      { name: "Leona Zhang", role: "Co-Founder, Terracotta", image: "/leona-zhang.jpeg" },
+    ],
+  },
+  {
+    id: "skills",
+    number: "04",
+    label: "Panel",
     title: "Essential AI Skills for Young Lawyers",
+    kicker: "How will practice change?",
+    time: "16:20–17:20",
     summary:
       "How AI changes day-to-day legal work and what skills young lawyers should build for the AI era.",
-    moderator: "Chandy Ye, Founder, Beyond Change Advisory",
-    panelists: [
-      "Wilfred Kwong, Head of Group Legal, HAECO",
-      "Ian Ernst Chai, CEO & Co-Founder, Elefant; Affiliate Faculty, Singapore Management University",
-      "I-firm panelist TBC",
-      "Barrister panelist TBC",
-      "Industry panelist TBC",
+    className: "themeOrange",
+    speakers: [
+      {
+        name: "Chandy Ye",
+        role: "Founder, Beyond Change Advisory; IAPP KnowledgeNet Hong Kong Co-Chair",
+        image: "/chandy-ye.jpg",
+      },
+      { name: "Wilfred Kwong", role: "Head of Group Legal, HAECO Group", image: "/wilfred-kwong.jpg" },
+      {
+        name: "Ian Ernst Chai",
+        role: "CEO & Co-Founder, Elefant; Affiliate Faculty, SMU",
+        image: "/ian-chai.png",
+      },
     ],
   },
 ];
 
-const demoSession = {
-  time: "16:00-16:20",
-  kind: "Demo session",
-  title: "Don't Wait for Legal Tech: Build Your Own",
-  summary:
-    "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
-  participantsLabel: "Speakers",
-  panelists: [
-    {
-      name: "Anissa Ng",
-      subtitle:
-        "HKEx Size Tests Assistant - extracts financials from annual reports with page citations, pulls HKEx market data and BOC FX rates, applies listing rules, and auto-fills size test metrics.",
-    },
-    { name: "Gallant Guo" },
-    { name: "Leona Zhang" },
-  ],
-};
-
-type Partner = {
-  name: string;
-  href: string;
-  logo: string;
-  logoClassName: string;
-};
-
-const partners: Partner[] = [
-  {
-    name: "HKU Law and Technology Centre",
-    href: "https://lawtech.hku.hk",
-    logo: "/hku-lawtech-logo.svg",
-    logoClassName: "hkuLogo",
-  },
-  {
-    name: "Casebyte",
-    href: "https://casebyte.ai/?utm_source=ai_young_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations",
-    logo: "/casebyte-black-logo.svg",
-    logoClassName: "casebyteLogo",
-  },
+const schedule = [
+  { time: "13:00–13:30", type: "Arrival", title: "Registration" },
+  { time: "13:30–13:40", type: "Opening", title: "Opening remarks" },
+  { time: "13:40–14:20", type: "Talk", title: "Frontier Legal AI Landscape", theme: "blue" },
+  { time: "14:20–14:25", type: "Pause", title: "Session changeover" },
+  { time: "14:25–15:15", type: "Panel", title: "Experimenting with Legal AI in Education", theme: "green" },
+  { time: "15:20–15:50", type: "Break", title: "Tea break" },
+  { time: "16:00–16:20", type: "Demo session", title: "Don’t Wait for Legal Tech: Build Your Own", theme: "lilac" },
+  { time: "16:20–17:20", type: "Panel", title: "Essential AI Skills for Young Lawyers", theme: "orange" },
+  { time: "17:20 onwards", type: "Networking", title: "Networking session" },
 ];
 
+const navItems = [
+  { href: "#themes", label: "Four sessions" },
+  { href: "#programme", label: "Programme" },
+  { href: "#supporters", label: "Supporters" },
+];
+
+function BrandMark({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className={`brandMark ${compact ? "brandMarkCompact" : ""}`} aria-label="AI for Young Lawyers">
+      <Image
+        className="brandLogoImage"
+        src={compact ? "/aiyl.svg" : "/aiyltext.svg"}
+        alt=""
+        width={compact ? 1124 : 1427}
+        height={compact ? 780 : 600}
+        priority
+      />
+    </span>
+  );
+}
+
+function MobileMenu({ open, onClose }: { open: boolean; onClose: () => void }) {
+  return (
+    <AnimatePresence>
+      {open && (
+        <motion.div
+          className="mobileMenu"
+          initial={{ clipPath: "inset(0 0 100% 0)" }}
+          animate={{ clipPath: "inset(0 0 0% 0)" }}
+          exit={{ clipPath: "inset(0 0 100% 0)" }}
+          transition={{ duration: 0.55, ease: [0.76, 0, 0.24, 1] }}
+        >
+          <div className="mobileMenuTop">
+            <BrandMark compact />
+            <button onClick={onClose} aria-label="Close menu"><X size={28} /></button>
+          </div>
+          <nav aria-label="Mobile navigation">
+            {navItems.map((item, index) => (
+              <motion.a
+                href={item.href}
+                key={item.href}
+                onClick={onClose}
+                initial={{ y: 28, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ delay: 0.12 + index * 0.08 }}
+              >
+                <span>0{index + 1}</span>{item.label}<ArrowUpRight />
+              </motion.a>
+            ))}
+          </nav>
+          <div className="mobileMenuMeta">
+            <span>15 AUG 2026</span>
+            <span>THE UNIVERSITY OF HONG KONG</span>
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  );
+}
+
+function SpeakerCard({ speaker, index }: { speaker: Speaker; index: number }) {
+  return (
+    <motion.article
+      className="speakerCard"
+      initial={{ opacity: 0, y: 70 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+    >
+      <div className="speakerPortrait">
+        <Image src={speaker.image} alt={speaker.name} fill sizes="(max-width: 760px) 78vw, 28vw" />
+      </div>
+      <div className="speakerCopy">
+        <h3>{speaker.name}</h3>
+        <p>{speaker.role}</p>
+      </div>
+    </motion.article>
+  );
+}
+
+function ThemeSection({ theme }: { theme: Theme }) {
+  return (
+    <section className={`themeSection ${theme.className}`} id={theme.id}>
+      <div className="themeWord" aria-hidden="true">
+        <Image src="/aiyl.svg" alt="" width={1124} height={780} />
+      </div>
+      <div className="themeIntro">
+        <div className="themeMeta">
+          <span>{theme.number}</span>
+          <span>{theme.label}</span>
+          <span>{theme.time}</span>
+        </div>
+        <motion.p
+          className="themeKicker"
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.7 }}
+        >{theme.kicker}</motion.p>
+        <motion.h2
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.45 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >{theme.title}</motion.h2>
+        <p className="themeSummary">{theme.summary}</p>
+      </div>
+      <div className="speakerRail">
+        {theme.speakers.map((speaker, index) => (
+          <SpeakerCard speaker={speaker} index={index} key={speaker.name} />
+        ))}
+      </div>
+    </section>
+  );
+}
+
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [openSchedule, setOpenSchedule] = useState<number | null>(2);
+  const { scrollYProgress } = useScroll();
+  const heroWordY = useTransform(scrollYProgress, [0, 0.18], [0, 240]);
+  const heroWordRotate = useTransform(scrollYProgress, [0, 0.18], [0, -7]);
+
   return (
     <main>
+      <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
+
       <section className="hero" id="top">
-        <Image
-          src="/forum-hero.png"
-          alt="Hong Kong harbour blended with legal papers and an artificial intelligence knowledge network"
-          fill
-          priority
-          className="heroImage"
-          sizes="100vw"
-        />
-        <div className="heroShade" />
+        <header className="siteHeader">
+          <a href="#top" aria-label="AI for Young Lawyers Forum home"><BrandMark /></a>
+          <nav aria-label="Primary navigation">
+            {navItems.map((item) => <a href={item.href} key={item.href}>{item.label}</a>)}
+          </nav>
+          <button className="menuButton" onClick={() => setMenuOpen(true)} aria-label="Open menu"><Menu /></button>
+        </header>
 
-        <nav className="nav" aria-label="Primary navigation">
-          <a className="brand" href="#top" aria-label="AI for Young Lawyers Forum home">
-            <span className="brandMark">AIYL</span>
-            <span>AI for Young Lawyers Forum</span>
-          </a>
-          <div className="navLinks">
-            <a href="#guests">Speakers</a>
-            <a href="#rundown">Rundown</a>
-            <a href="#sponsors">Partners</a>
-          </div>
-        </nav>
-
+        <motion.div className="heroWord" style={{ y: heroWordY, rotate: heroWordRotate }} aria-hidden="true">
+          <Image src="/aiyl.svg" alt="" width={1124} height={780} priority loading="eager" />
+        </motion.div>
+        <div className="heroGrid" aria-hidden="true">
+          <span className="blue" /><span className="green" /><span className="lilac" /><span className="orange" />
+        </div>
         <div className="heroContent">
-          <p className="eyebrow">Legal technology / young lawyers / Hong Kong</p>
-          <h1>AI for Young Lawyers Forum</h1>
-          <p className="heroLead">
-            A free afternoon forum for law students and young practitioners on how
-            AI is changing legal education, legal work, and early-career planning.
-          </p>
-
-          <div className="heroActions" aria-label="Forum actions">
-            <a className="primaryButton" href="#rundown">
-              View rundown
-              <ArrowRight size={18} strokeWidth={1.8} />
-            </a>
-            <a className="secondaryButton" href="#guests">
-              Meet the speakers
-            </a>
-          </div>
+          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2, duration: 0.7 }}>
+            Hong Kong · 2026
+          </motion.p>
+          <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
+            Law, technology,<br />judgment &amp; the next<br />generation of practice.
+          </motion.h1>
+          <motion.a className="heroCta" href="#themes" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
+            Explore the programme <ArrowDown size={18} />
+          </motion.a>
         </div>
-
-        <div className="eventStrip" aria-label="Forum overview">
-          <div>
-            <span>Date</span>
-            <strong>Aug 15, Sat</strong>
-          </div>
-          <div>
-            <span>Time</span>
-            <strong>13:30-18:00</strong>
-          </div>
-          <div>
-            <span>Venue</span>
-            <strong>
-              Philip K. H. Wong Theatre, 2/F Cheng Yu Tung Tower, The University
-              of Hong Kong
-            </strong>
-          </div>
+        <div className="heroDetails">
+          <span>Sat, Aug 15</span>
+          <span>13:30–18:00</span>
+          <span>Philip K. H. Wong Theatre<br />The University of Hong Kong</span>
         </div>
       </section>
 
-      <section className="guestList" id="guests" aria-labelledby="guests-title">
-        <div className="sectionHeader">
-          <p className="eyebrow dark">Confirmed roster</p>
-          <h2 id="guests-title">Speakers</h2>
+      <section className="statement" id="themes">
+        <motion.p initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9 }}>
+          A free afternoon forum for law students and young practitioners exploring how AI is changing legal education, legal work, and early-career planning.
+        </motion.p>
+        <div className="statementFoot"><span>Four questions.</span><span>One changing profession.</span></div>
+      </section>
+
+      <div className="marquee" aria-hidden="true">
+        <div>LEARN · BUILD · QUESTION · PRACTISE · LEARN · BUILD · QUESTION · PRACTISE ·&nbsp;</div>
+        <div>LEARN · BUILD · QUESTION · PRACTISE · LEARN · BUILD · QUESTION · PRACTISE ·&nbsp;</div>
+      </div>
+
+      {themes.map((theme) => <ThemeSection theme={theme} key={theme.id} />)}
+
+      <section className="programme" id="programme">
+        <div className="programmeHeading">
+          <span>15 AUG 2026</span>
+          <h2>Programme</h2>
+          <p>A focused afternoon of talks, demonstrations, panels and conversation.</p>
         </div>
-        <div className="guestGroups">
-          {speakerGroups.map((group) => (
-            <section className="guestGroup" key={group.label} aria-label={group.title}>
-              <div className="guestGroupHeader">
-                <span>{group.label}</span>
-                <h3>{group.title}</h3>
-              </div>
-              <div className="guestGrid">
-                {group.speakers.map((speakerName) => {
-                  const guest = guestByName.get(speakerName);
-
-                  if (!guest) {
-                    return null;
-                  }
-
-                  return (
-                    <article className="guestCard" key={guest.name}>
-                      <img src={guest.image ?? "/portrait-placeholder.svg"} alt="" />
-                      <div>
-                        <h3>{guest.name}</h3>
-                        <p>{guest.title}</p>
-                      </div>
-                    </article>
-                  );
-                })}
-              </div>
-            </section>
-          ))}
+        <div className="schedule">
+          {schedule.map((item, index) => {
+            const isOpen = openSchedule === index;
+            return (
+              <button
+                className={`scheduleRow ${item.theme ? `schedule-${item.theme}` : ""} ${isOpen ? "isOpen" : ""}`}
+                key={`${item.time}-${item.title}`}
+                onClick={() => setOpenSchedule(isOpen ? null : index)}
+                aria-expanded={isOpen}
+              >
+                <span className="scheduleTime">{item.time}</span>
+                <span className="scheduleType">{item.type}</span>
+                <span className="scheduleTitle">{item.title}</span>
+                <ChevronDown className="scheduleIcon" />
+                <span className="scheduleReveal">Philip K. H. Wong Theatre · 2/F Cheng Yu Tung Tower</span>
+              </button>
+            );
+          })}
         </div>
       </section>
 
-      <section className="rundown" id="rundown" aria-labelledby="rundown-title">
-        <div className="rundownLead">
-          <p className="eyebrow dark">Rundown</p>
-          <h2 id="rundown-title">Programme</h2>
-          <p>
-            The programme is built around responsible AI use, legal education,
-            changing workflows, and skills that young lawyers can put to work.
-          </p>
+      <section className="supporters" id="supporters">
+        <div className="supportersHeader">
+          <span>Supporting organisations</span>
+          <h2>Made for the next generation of legal practice.</h2>
         </div>
-
-        <div className="schedule" aria-label="Forum schedule">
-          <div className="scheduleMoment">
-            <time>13:00-13:30</time>
-            <div>
-              <span>Arrival</span>
-              <h3>Registration</h3>
-            </div>
-          </div>
-
-          <div className="scheduleMoment">
-            <time>13:30-13:40</time>
-            <div>
-              <span>Opening</span>
-              <h3>Opening remarks</h3>
-            </div>
-          </div>
-
-          {panels.map((panel, index) => (
-            <div className="scheduleGroup" key={panel.title}>
-              <details className="panelDetail">
-                <summary>
-                  <time>{panel.time}</time>
-                  <div>
-                    <span>{panel.kind ?? "Panel"}</span>
-                    <h3>{panel.title}</h3>
-                    <p>{panel.summary}</p>
-                  </div>
-                  <ChevronDown size={22} strokeWidth={1.7} aria-hidden="true" />
-                </summary>
-                <div
-                  className={`panelPeople ${
-                    panel.moderator ? "withModerator" : "speakerOnly"
-                  }`}
-                >
-                  {panel.moderator && (
-                    <div>
-                      <strong>Moderator</strong>
-                      <p>{panel.moderator}</p>
-                    </div>
-                  )}
-                  <div>
-                    <strong>{panel.participantsLabel ?? "Panelists"}</strong>
-                    <ul>
-                      {panel.panelists.map((panelist) => (
-                        <li key={panelist}>{panelist}</li>
-                      ))}
-                    </ul>
-                  </div>
-                </div>
-              </details>
-
-              {index < panels.length - 1 && (
-                <div className="scheduleBreak">
-                  <Coffee size={20} strokeWidth={1.7} />
-                  <span>{index === 0 ? "14:20-14:25" : "15:20-15:50"}</span>
-                  <strong>{index === 0 ? "Session changeover" : "Tea break"}</strong>
-                </div>
-              )}
-
-              {index === 1 && (
-                <details className="panelDetail">
-                  <summary>
-                    <time>{demoSession.time}</time>
-                    <div>
-                      <span>{demoSession.kind}</span>
-                      <h3>{demoSession.title}</h3>
-                      <p>{demoSession.summary}</p>
-                    </div>
-                    <ChevronDown size={22} strokeWidth={1.7} aria-hidden="true" />
-                  </summary>
-                  <div className="panelPeople speakerOnly">
-                    <div>
-                      <strong>{demoSession.participantsLabel}</strong>
-                      <ul>
-                        {demoSession.panelists.map((panelist) => (
-                          <li key={panelist.name}>
-                            <span className="demoSpeakerName">{panelist.name}</span>
-                            {panelist.subtitle && (
-                              <span className="demoSpeakerSubtitle">
-                                {panelist.subtitle}
-                              </span>
-                            )}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </details>
-              )}
-            </div>
-          ))}
-
-          <div className="networkingBlock">
-            <Handshake size={28} strokeWidth={1.6} />
-            <time>17:20</time>
-            <div>
-              <span>Networking</span>
-              <h3>Networking session</h3>
-              <p>
-                A relaxed end-of-day session for students, trainees, associates,
-                academics, sponsors, and speakers to continue the discussion
-                downstairs in the hall.
-              </p>
-            </div>
-          </div>
+        <div className="supporterGrid">
+          <a href="https://lawtech.hku.hk" target="_blank" rel="noreferrer" aria-label="Visit HKU Law and Technology Centre">
+            <Image src="/hku-lawtech-logo.svg" alt="HKU Law and Technology Centre" width={280} height={130} />
+            <ArrowUpRight />
+          </a>
+          <a href="https://casebyte.ai/?utm_source=ai_young_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations" target="_blank" rel="noreferrer" aria-label="Visit Casebyte">
+            <Image src="/casebyte-black-logo.svg" alt="Casebyte" width={260} height={100} />
+            <ArrowUpRight />
+          </a>
         </div>
       </section>
 
-      <section className="organizers" id="sponsors" aria-labelledby="sponsors-title">
-        <div className="teamIntro">
-          <p className="eyebrow" id="sponsors-title">Supporting organizations</p>
+      <section className="registerCta" aria-labelledby="register-heading">
+        <div className="registerCtaStripes" aria-hidden="true">
+          <span className="blue" />
+          <span className="green" />
+          <span className="lilac" />
+          <span className="orange" />
         </div>
-        <div className="teamGrid">
-          {partners.map((partner) => (
-            <a
-              className="teamCard logoTeamCard"
-              href={partner.href}
-              key={partner.name}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Visit ${partner.name}`}
-            >
-              <div className="teamLogoPanel">
-                <img
-                  src={partner.logo}
-                  alt={partner.name}
-                  className={partner.logoClassName}
-                />
-              </div>
-            </a>
-          ))}
-        </div>
+        <motion.div
+          className="registerCtaContent"
+          initial={{ opacity: 0, y: 54 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.3 }}
+          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="registerCtaMeta">
+            <span>15 August 2026</span>
+            <span>Hong Kong</span>
+          </div>
+          <h2 id="register-heading">Join the forum.</h2>
+          <a
+            className="registerButton"
+            href="https://luma.com/3attxu5x"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Register now
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+        </motion.div>
       </section>
 
       <footer className="footer">
-        <div>
-          <strong>AI for Young Lawyers Forum</strong>
-          <span>Law, technology, judgment, and the next generation of practice.</span>
+        <div className="footerWord" aria-hidden="true">
+          <Image src="/aiyl.svg" alt="" width={1124} height={780} />
         </div>
-
+        <div className="footerTop">
+          <BrandMark />
+          <p>Law, technology, judgment,<br />and the next generation of practice.</p>
+        </div>
+        <div className="footerBottom"><span>HONG KONG · 2026</span><a href="#top">BACK TO TOP <ArrowUpRight size={16} /></a></div>
       </footer>
     </main>
   );
