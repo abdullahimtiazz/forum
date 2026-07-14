@@ -94,6 +94,7 @@
 - Stacked the sponsorship email directly below its question at every viewport.
 - Added a one-pixel overlap between hero color panels to prevent dark subpixel seams at reduced browser zoom.
 - Updated the sponsorship contact address to `aiyl@aiforyounglawyers.com` in both visible copy and its mail link.
+- Increased the sponsorship question and email sizes while keeping them subordinate to the organisation headline.
 
 ## Follow-up polish
 

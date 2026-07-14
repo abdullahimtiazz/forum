@@ -439,7 +439,7 @@ main { overflow: clip; }
   flex-direction: column;
   gap: 8px;
   margin: 26px 0 0;
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 560;
   letter-spacing: -.01em;
 }
@@ -449,7 +449,7 @@ main { overflow: clip; }
   gap: 10px;
   padding-bottom: 4px;
   border-bottom: 1px solid currentColor;
-  font-size: 14px;
+  font-size: 18px;
   letter-spacing: 0;
 }
 
@@ -666,8 +666,8 @@ main { overflow: clip; }
   .supportersHeader h2 { font-size: 54px; }
   .supporterGrid { grid-template-columns: 1fr; }
   .supporterGrid a { min-height: 210px; }
-  .supporterContact { gap: 10px; margin-top: 24px; }
-  .supporterContact a { font-size: 14px; }
+  .supporterContact { gap: 10px; margin-top: 24px; font-size: 18px; }
+  .supporterContact a { font-size: 16px; }
   .registerCta { min-height: 680px; align-items: center; }
   .registerCtaContent { grid-template-columns: 1fr; gap: 38px; }
   .registerCta h2 { font-size: clamp(76px, 24vw, 116px); line-height: .82; }
