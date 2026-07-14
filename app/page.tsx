@@ -290,7 +290,7 @@ export default function Home() {
         <motion.p initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9 }}>
           An afternoon forum for law students and young practitioners to explore how AI is changing legal education and their future careers
         </motion.p>
-        <div className="statementFoot"><span>Four questions.</span><span>One changing profession.</span></div>
+        <div className="statementFoot"><span>Four questions.</span><span>One evolving profession.</span></div>
       </section>
 
       <div className="marquee" aria-hidden="true">

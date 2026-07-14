@@ -97,6 +97,25 @@
 - Increased the sponsorship question and email sizes while keeping them subordinate to the organisation headline.
 - Replaced the full AIYL lockup with the supplied logo-and-tagline SVG and updated its intrinsic and rendered dimensions.
 - Relaxed display-headline tracking by roughly one to two percent across hero, session, programme, schedule, supporter, CTA, and footer headings.
+- Replaced Wilfred Kwong's 200 x 200 portrait with the supplied 400 x 400 source image for a sharper card crop.
+
+### Pass 6 — LinkedIn social poster
+
+- Source visual truth: `/var/folders/3f/j7t2kccs44x_jp2f281fwfsw0000gp/T/codex-clipboard-9555218f-d751-49f9-8d73-9d1a1e6b5a80.png`
+- Browser-rendered implementation: `/Users/itsrocky/Projects/forum/.qa/poster-1200x627-v1.png`
+- Full-view comparison evidence: `/Users/itsrocky/Projects/forum/.qa/poster-comparison.png`
+- Export artifact: `/Users/itsrocky/Projects/forum/aiyl-linkedin-poster.png`
+- Viewport and state: 1200 x 627, `/poster`, static fully loaded state.
+- Focused comparison was not needed because the side-by-side full-view evidence keeps the 75px headline, 25px date/time, logo, and venue copy legible at native scale.
+- Fonts and typography: Funnel Sans Variable is preserved from the site. The headline keeps the hero's weight, tight tracking, and line-height while rewrapping cleanly for the shorter social canvas.
+- Spacing and layout rhythm: the four equal columns, 30px outer inset, larger top-left lockup, centered headline block, and enlarged bottom-left event card retain the hero's hierarchy without the removed eyebrow, navigation, or programme link.
+- Colors and visual tokens: the existing blue, green, lilac, and orange tokens are reused exactly, including the one-pixel panel overlap that prevents subpixel seams.
+- Image quality and asset fidelity: both visible marks use the supplied vector `aiyltext.svg` and `aiyl.svg` assets; the exported PNG is the requested native 1200 x 627 resolution.
+- Copy and content: the poster contains only the forum logo, hero headline, date, time, and venue. `Hong Kong · 2026`, `Explore the programme`, and all upper-right navigation are absent as requested.
+- Primary interactions tested: none applicable; the deliverable is intentionally static.
+- Console errors checked: no warnings or errors were reported on the poster route.
+- Findings: no actionable P0, P1, or P2 mismatches. The altered aspect ratio and larger information hierarchy are intentional adaptations for LinkedIn rather than source drift.
+- Comparison history: the first browser-rendered pass met the stated requirements, so no visual-fix iteration was required.
 
 ## Follow-up polish
 
