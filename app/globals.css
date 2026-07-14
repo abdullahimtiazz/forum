@@ -91,7 +91,12 @@ main { overflow: clip; }
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 }
-.heroGrid span { transform: scaleY(0); transform-origin: top; animation: colorDrop 0.9s forwards cubic-bezier(.76,0,.24,1); }
+.heroGrid span {
+  width: calc(100% + 1px);
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: colorDrop 0.9s forwards cubic-bezier(.76,0,.24,1);
+}
 .heroGrid .blue { background: var(--blue); animation-delay: 80ms; }
 .heroGrid .green { background: var(--green); animation-delay: 150ms; }
 .heroGrid .lilac { background: var(--lilac); animation-delay: 220ms; }
@@ -124,7 +129,7 @@ main { overflow: clip; }
 }
 .heroContent {
   align-self: end;
-  padding: 180px 28px 42px;
+  padding: 180px 28px 132px;
   grid-column: 1 / -1;
 }
 .heroContent > p {
@@ -157,15 +162,27 @@ main { overflow: clip; }
 .heroCta:hover svg { transform: translateY(5px); }
 .heroDetails {
   position: absolute;
-  right: 28px;
-  bottom: 42px;
-  width: min(430px, 41vw);
+  left: 28px;
+  bottom: 28px;
+  width: auto;
   display: grid;
-  grid-template-columns: .7fr .8fr 1.8fr;
-  gap: 20px;
-  font-size: 12px;
-  font-weight: 580;
+  grid-template-columns: auto auto minmax(230px, 1fr);
+  align-items: center;
+  gap: 24px;
+  padding: 15px 18px;
+  border: 1px solid rgba(255,255,255,.22);
+  background: rgba(16,16,16,.94);
+  color: white;
+  box-shadow: 0 14px 38px rgba(0,0,0,.18);
+  font-size: 13px;
+  font-weight: 650;
   line-height: 1.2;
+}
+.heroDetails span:nth-child(-n+2) {
+  font-size: 19px;
+  font-weight: 760;
+  letter-spacing: -.025em;
+  white-space: nowrap;
 }
 
 .statement {
@@ -309,12 +326,11 @@ main { overflow: clip; }
 }
 .programmeHeading {
   display: grid;
-  grid-template-columns: 150px 1fr 420px;
-  gap: 20px;
+  grid-template-columns: minmax(0, 1fr) minmax(330px, 430px);
+  gap: 48px;
   align-items: end;
   padding-bottom: 30px;
 }
-.programmeHeading > span { align-self: start; font-size: 13px; font-weight: 700; }
 .programmeHeading h2 {
   margin: 0;
   font-size: clamp(64px, 9vw, 140px);
@@ -322,49 +338,75 @@ main { overflow: clip; }
   letter-spacing: -0.075em;
   line-height: .75;
 }
-.programmeHeading p { margin: 0; font-size: 18px; line-height: 1.25; }
+.programmeMeta {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 24px;
+  align-items: end;
+  padding-bottom: 4px;
+  font-size: 12px;
+  font-weight: 680;
+  line-height: 1.35;
+  text-transform: uppercase;
+}
 .schedule { border-top: 1px solid var(--ink); }
 .scheduleRow {
   width: 100%;
   position: relative;
   display: grid;
-  grid-template-columns: 150px 170px 1fr 30px;
+  grid-template-columns: 150px 170px 1fr;
   gap: 20px;
   align-items: center;
   border: 0;
   border-bottom: 1px solid var(--ink);
-  padding: 21px 4px 19px;
+  padding: 21px 6px 19px;
   background: transparent;
   text-align: left;
-  cursor: pointer;
+  cursor: default;
   overflow: hidden;
   transition: background .35s ease, padding .35s ease;
 }
-.scheduleRow:hover, .scheduleRow.isOpen { padding-left: 14px; padding-right: 14px; }
-.schedule-blue:hover, .schedule-blue.isOpen { background: var(--blue); color: white; }
-.schedule-green:hover, .schedule-green.isOpen { background: var(--green); color: white; }
-.schedule-lilac:hover, .schedule-lilac.isOpen { background: var(--lilac); color: var(--cobalt); }
-.schedule-orange:hover, .schedule-orange.isOpen { background: var(--orange); color: white; }
+.scheduleRow[class*="schedule-"]::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 13px;
+  bottom: 13px;
+  width: 4px;
+  background: currentColor;
+}
+.schedule-blue::before { color: var(--blue); }
+.schedule-green::before { color: var(--green); }
+.schedule-lilac::before { color: var(--cobalt); }
+.schedule-orange::before { color: var(--orange); }
+.scheduleMinor {
+  padding-top: 13px;
+  padding-bottom: 13px;
+  color: rgba(16,16,16,.48);
+  border-bottom-color: rgba(16,16,16,.34);
+}
+.scheduleMinor .scheduleTitle { font-size: clamp(17px, 1.8vw, 27px); font-weight: 520; }
+.scheduleMinor .scheduleTime, .scheduleMinor .scheduleType { font-size: 11px; font-weight: 560; }
+.scheduleRow:hover { padding-left: 14px; padding-right: 14px; }
+.schedule-blue:hover { background: var(--blue); color: white; }
+.schedule-green:hover { background: var(--green); color: white; }
+.schedule-lilac:hover { background: var(--lilac); color: var(--cobalt); }
+.schedule-orange:hover { background: var(--orange); color: white; }
 .scheduleTime, .scheduleType { font-size: 13px; font-weight: 630; text-transform: uppercase; }
 .scheduleTitle { font-size: clamp(22px, 2.7vw, 42px); font-weight: 620; letter-spacing: -0.05em; }
-.scheduleIcon { transition: transform .35s ease; }
-.isOpen .scheduleIcon { transform: rotate(180deg); }
-.scheduleReveal {
-  grid-column: 3 / 5;
-  max-height: 0;
-  opacity: 0;
-  overflow: hidden;
-  font-size: 13px;
-  transition: max-height .4s ease, opacity .3s ease, padding .4s ease;
-}
-.isOpen .scheduleReveal { max-height: 50px; opacity: .75; padding-top: 6px; }
 
 .supporters {
   padding: 78px 28px 90px;
   background: var(--lilac);
   color: var(--cobalt);
 }
-.supportersHeader > span { font-size: 13px; font-weight: 700; text-transform: uppercase; }
+.supportersHeader { margin-bottom: 30px; }
+.supportersHeader > span {
+  font-size: clamp(30px, 3.4vw, 50px);
+  font-weight: 650;
+  letter-spacing: -.05em;
+  line-height: .95;
+}
 .supportersHeader h2 {
   max-width: 1000px;
   margin: 34px 0 70px;
@@ -375,7 +417,7 @@ main { overflow: clip; }
 }
 .supporterGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   border-top: 1px solid currentColor;
   border-left: 1px solid currentColor;
 }
@@ -391,6 +433,25 @@ main { overflow: clip; }
 .supporterGrid a:hover { background: rgba(255,255,255,.22); }
 .supporterGrid img { width: auto; max-width: 58%; height: auto; object-fit: contain; }
 .supporterGrid svg { position: absolute; top: 18px; right: 18px; }
+.supporterContact {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  margin: 26px 0 0;
+  font-size: 16px;
+  font-weight: 560;
+  letter-spacing: -.01em;
+}
+.supporterContact a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid currentColor;
+  font-size: 14px;
+  letter-spacing: 0;
+}
 
 .registerCta {
   position: relative;
@@ -529,8 +590,7 @@ main { overflow: clip; }
   .themeSummary { margin-left: 50%; }
   .speakerRail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
   .programme { padding: 62px 18px 80px; }
-  .programmeHeading { grid-template-columns: 100px 1fr; }
-  .programmeHeading p { grid-column: 2; }
+  .programmeHeading { grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 28px; }
   .scheduleRow { grid-template-columns: 110px 110px 1fr 26px; gap: 12px; }
   .supporters { padding: 62px 18px 70px; }
   .registerCta { padding-inline: 18px; }
@@ -540,14 +600,22 @@ main { overflow: clip; }
 @media (max-width: 620px) {
   .hero { min-height: 844px; }
   .heroGrid { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
-  .heroWord { top: 42%; transform: translate(-53%, -50%); }
-  .heroWord img { width: 112vw; }
-  .heroContent { align-self: start; padding: 128px 18px 0; }
+  .heroWord { display: none; }
+  .heroContent { align-self: start; padding: 152px 18px 0; }
   .heroContent > p { margin-bottom: 13px; font-size: 10px; }
   .heroContent h1 { font-size: clamp(43px, 13.6vw, 58px); line-height: .88; }
   .heroCta { margin-top: 24px; font-size: 11px; gap: 12px; }
-  .heroDetails { grid-template-columns: 1fr 1fr; gap: 11px; font-size: 10px; }
-  .heroDetails span:last-child { grid-column: 1 / -1; }
+  .heroDetails {
+    right: auto;
+    width: 260px;
+    grid-template-columns: 1fr;
+    gap: 5px;
+    padding: 15px 16px;
+    font-size: 16px;
+    line-height: 1.1;
+  }
+  .heroDetails span:nth-child(-n+2) { font-size: 19px; }
+  .heroDetails span:last-child { grid-column: 1; margin-top: 5px; font-size: 13px; line-height: 1.15; }
   .brandLogoImage { width: 112px; height: 47px; }
   .brandMarkCompact .brandLogoImage { width: 58px; height: 41px; }
 
@@ -563,29 +631,43 @@ main { overflow: clip; }
   .themeSummary { max-width: none; margin: 26px 0 42px 20%; font-size: 17px; }
   .themeWord { top: 88px; left: -12vw; right: auto; }
   .themeWord img { width: 108vw; }
-  .speakerRail { display: flex; margin-right: -18px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; }
+  .speakerRail {
+    display: flex;
+    align-items: flex-start;
+    margin-right: -18px;
+    padding-right: 18px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    touch-action: pan-x pan-y;
+    scrollbar-width: none;
+  }
   .speakerRail::-webkit-scrollbar { display: none; }
-  .speakerCard { min-width: 78vw; scroll-snap-align: start; }
+  .speakerCard { min-width: 72vw; }
   .speakerCopy h3 { font-size: 30px; }
 
   .programmeHeading { display: block; }
-  .programmeHeading h2 { margin: 22px 0 28px; font-size: 72px; }
-  .programmeHeading p { max-width: 340px; font-size: 16px; }
+  .programmeHeading h2 { margin: 0 0 28px; font-size: 72px; }
+  .programmeMeta { grid-template-columns: 1fr; gap: 8px; padding-bottom: 0; }
   .schedule { margin-top: 34px; }
   .scheduleRow {
     grid-template-columns: 1fr auto;
     gap: 7px 14px;
-    padding: 17px 2px 15px;
+    padding: 17px 12px 15px;
   }
   .scheduleTime { grid-column: 1; }
-  .scheduleType { grid-column: 1; font-size: 10px; opacity: .65; }
-  .scheduleTitle { grid-column: 1; font-size: 26px; }
-  .scheduleIcon { grid-column: 2; grid-row: 1 / 4; }
-  .scheduleReveal { grid-column: 1 / -1; }
+  .scheduleType { grid-column: 2; grid-row: 1; justify-self: end; font-size: 10px; opacity: .65; }
+  .scheduleTitle { grid-column: 1 / -1; grid-row: 2; font-size: 26px; }
+  .scheduleRow[class*="schedule-"]::before { top: 10px; bottom: 10px; width: 4px; }
+  .scheduleMinor { padding-top: 11px; padding-bottom: 11px; }
+  .scheduleMinor .scheduleTitle { font-size: 20px; }
+  .scheduleMinor .scheduleTime, .scheduleMinor .scheduleType { font-size: 9px; }
 
   .supportersHeader h2 { font-size: 54px; }
   .supporterGrid { grid-template-columns: 1fr; }
   .supporterGrid a { min-height: 210px; }
+  .supporterContact { gap: 10px; margin-top: 24px; }
+  .supporterContact a { font-size: 14px; }
   .registerCta { min-height: 680px; align-items: center; }
   .registerCtaContent { grid-template-columns: 1fr; gap: 38px; }
   .registerCta h2 { font-size: clamp(76px, 24vw, 116px); line-height: .82; }

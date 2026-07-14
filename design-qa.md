@@ -70,6 +70,31 @@
 - Preserved the portrait hover treatment by carrying the same one-percent bleed into its enlarged scale value.
 - Clipped the oversized hero mark to the hero boundary so its scroll-linked motion cannot bleed into the following introduction section on wide, zoomed-out layouts.
 
+### Pass 5
+
+- Reduced mobile card width to leave a visible preview of the next speaker as the carousel affordance.
+- Removed mandatory scroll snapping from mobile speaker rails so manual swiping remains direct and predictable.
+- Replaced programme accordions with static schedule rows and moved the shared venue information into the programme heading, eliminating repeated disclosure content.
+- Lowered the mobile hero headline for better separation from the header, removed the decorative hero watermark at phone widths, and increased the date/time size while keeping the venue text secondary.
+- Updated the introduction statement to the supplied future-careers wording and checked its mobile wrap.
+- Locked mobile speaker rails to horizontal overflow only, while retaining vertical touch gestures for normal page scrolling.
+- Shortened the second panel title to `Legal AI in Education` across the session and programme views.
+- Moved the registration CTA before supporting organisations so conversion follows the programme directly.
+- Positioned the mobile headline so `practice.` ends above the quadrant divider while the programme link begins below it, and enlarged the stacked event information block.
+- Moved mobile programme type labels to the upper-right of each row, opposite the time, with titles spanning below.
+- Added persistent blue, green, cobalt, and orange accents to the four core programme sessions while rendering session changeover and tea break as smaller, lighter utility rows.
+- Removed the supporting-organisations marketing headline, leaving the section label and organisation cards.
+- Added the HKU Faculty of Law logo as the first supporting organisation and expanded the desktop logo grid to three columns.
+- Reworked hero event details into a high-contrast bottom-left card at every viewport, enlarged date and time, and moved desktop hero copy upward to prevent overlap.
+- Removed theme-specific programme padding so every time, type, and title remains on one shared desktop and mobile grid while color bars sit independently.
+- Replaced both AIYL assets with the final supplied SVGs and updated intrinsic image dimensions to match their source view boxes.
+- Simplified the programme header to a left-aligned title followed by date and location, removing the descriptive sentence.
+- Added a sponsorship enquiry and direct email link beneath the supporting-organisation logos.
+- Promoted `Supporting organisations` to a proper section headline and reduced the sponsorship enquiry to secondary utility copy.
+- Stacked the sponsorship email directly below its question at every viewport.
+- Added a one-pixel overlap between hero color panels to prevent dark subpixel seams at reduced browser zoom.
+- Updated the sponsorship contact address to `aiyl@aiforyounglawyers.com` in both visible copy and its mail link.
+
 ## Follow-up polish
 
 - P3 only: final production capture will not show the small Next.js development indicator visible in local development screenshots.

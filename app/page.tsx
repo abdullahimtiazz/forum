@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, ArrowUpRight, ChevronDown, Menu, X } from "lucide-react";
+import { ArrowDown, ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 type Speaker = {
@@ -44,7 +44,7 @@ const themes: Theme[] = [
     id: "education",
     number: "02",
     label: "Panel",
-    title: "Experimenting with Legal AI in Education",
+    title: "Legal AI in Education",
     kicker: "How should we learn?",
     time: "14:25–15:15",
     summary:
@@ -119,9 +119,9 @@ const schedule = [
   { time: "13:00–13:30", type: "Arrival", title: "Registration" },
   { time: "13:30–13:40", type: "Opening", title: "Opening remarks" },
   { time: "13:40–14:20", type: "Talk", title: "Frontier Legal AI Landscape", theme: "blue" },
-  { time: "14:20–14:25", type: "Pause", title: "Session changeover" },
-  { time: "14:25–15:15", type: "Panel", title: "Experimenting with Legal AI in Education", theme: "green" },
-  { time: "15:20–15:50", type: "Break", title: "Tea break" },
+  { time: "14:20–14:25", type: "Pause", title: "Session changeover", minor: true },
+  { time: "14:25–15:15", type: "Panel", title: "Legal AI in Education", theme: "green" },
+  { time: "15:20–15:50", type: "Break", title: "Tea break", minor: true },
   { time: "16:00–16:20", type: "Demo session", title: "Don’t Wait for Legal Tech: Build Your Own", theme: "lilac" },
   { time: "16:20–17:20", type: "Panel", title: "Essential AI Skills for Young Lawyers", theme: "orange" },
   { time: "17:20 onwards", type: "Networking", title: "Networking session" },
@@ -140,8 +140,8 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
         className="brandLogoImage"
         src={compact ? "/aiyl.svg" : "/aiyltext.svg"}
         alt=""
-        width={compact ? 1124 : 1427}
-        height={compact ? 780 : 600}
+        width={compact ? 1356 : 1428}
+        height={compact ? 938 : 604}
         priority
       />
     </span>
@@ -211,7 +211,7 @@ function ThemeSection({ theme }: { theme: Theme }) {
   return (
     <section className={`themeSection ${theme.className}`} id={theme.id}>
       <div className="themeWord" aria-hidden="true">
-        <Image src="/aiyl.svg" alt="" width={1124} height={780} />
+        <Image src="/aiyl.svg" alt="" width={1356} height={938} />
       </div>
       <div className="themeIntro">
         <div className="themeMeta">
@@ -245,7 +245,6 @@ function ThemeSection({ theme }: { theme: Theme }) {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
-  const [openSchedule, setOpenSchedule] = useState<number | null>(2);
   const { scrollYProgress } = useScroll();
   const heroWordY = useTransform(scrollYProgress, [0, 0.18], [0, 240]);
   const heroWordRotate = useTransform(scrollYProgress, [0, 0.18], [0, -7]);
@@ -264,7 +263,7 @@ export default function Home() {
         </header>
 
         <motion.div className="heroWord" style={{ y: heroWordY, rotate: heroWordRotate }} aria-hidden="true">
-          <Image src="/aiyl.svg" alt="" width={1124} height={780} priority loading="eager" />
+          <Image src="/aiyl.svg" alt="" width={1356} height={938} priority loading="eager" />
         </motion.div>
         <div className="heroGrid" aria-hidden="true">
           <span className="blue" /><span className="green" /><span className="lilac" /><span className="orange" />
@@ -289,7 +288,7 @@ export default function Home() {
 
       <section className="statement" id="themes">
         <motion.p initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.5 }} transition={{ duration: 0.9 }}>
-          A free afternoon forum for law students and young practitioners exploring how AI is changing legal education, legal work, and early-career planning.
+          An afternoon forum for law students and young practitioners to explore how AI is changing legal education and their future careers
         </motion.p>
         <div className="statementFoot"><span>Four questions.</span><span>One changing profession.</span></div>
       </section>
@@ -303,45 +302,23 @@ export default function Home() {
 
       <section className="programme" id="programme">
         <div className="programmeHeading">
-          <span>15 AUG 2026</span>
           <h2>Programme</h2>
-          <p>A focused afternoon of talks, demonstrations, panels and conversation.</p>
+          <div className="programmeMeta">
+            <span>15 AUG 2026</span>
+            <span>Philip K. H. Wong Theatre · 2/F Cheng Yu Tung Tower</span>
+          </div>
         </div>
         <div className="schedule">
-          {schedule.map((item, index) => {
-            const isOpen = openSchedule === index;
-            return (
-              <button
-                className={`scheduleRow ${item.theme ? `schedule-${item.theme}` : ""} ${isOpen ? "isOpen" : ""}`}
+          {schedule.map((item) => (
+              <div
+                className={`scheduleRow ${item.theme ? `schedule-${item.theme}` : ""} ${item.minor ? "scheduleMinor" : ""}`}
                 key={`${item.time}-${item.title}`}
-                onClick={() => setOpenSchedule(isOpen ? null : index)}
-                aria-expanded={isOpen}
               >
                 <span className="scheduleTime">{item.time}</span>
                 <span className="scheduleType">{item.type}</span>
                 <span className="scheduleTitle">{item.title}</span>
-                <ChevronDown className="scheduleIcon" />
-                <span className="scheduleReveal">Philip K. H. Wong Theatre · 2/F Cheng Yu Tung Tower</span>
-              </button>
-            );
-          })}
-        </div>
-      </section>
-
-      <section className="supporters" id="supporters">
-        <div className="supportersHeader">
-          <span>Supporting organisations</span>
-          <h2>Made for the next generation of legal practice.</h2>
-        </div>
-        <div className="supporterGrid">
-          <a href="https://lawtech.hku.hk" target="_blank" rel="noreferrer" aria-label="Visit HKU Law and Technology Centre">
-            <Image src="/hku-lawtech-logo.svg" alt="HKU Law and Technology Centre" width={280} height={130} />
-            <ArrowUpRight />
-          </a>
-          <a href="https://casebyte.ai/?utm_source=ai_young_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations" target="_blank" rel="noreferrer" aria-label="Visit Casebyte">
-            <Image src="/casebyte-black-logo.svg" alt="Casebyte" width={260} height={100} />
-            <ArrowUpRight />
-          </a>
+              </div>
+          ))}
         </div>
       </section>
 
@@ -376,9 +353,33 @@ export default function Home() {
         </motion.div>
       </section>
 
+      <section className="supporters" id="supporters">
+        <div className="supportersHeader">
+          <span>Supporting organisations</span>
+        </div>
+        <div className="supporterGrid">
+          <a href="https://www.law.hku.hk/" target="_blank" rel="noreferrer" aria-label="Visit HKU Faculty of Law">
+            <Image src="/hku-law-logo.png" alt="HKU Faculty of Law" width={487} height={205} />
+            <ArrowUpRight />
+          </a>
+          <a href="https://lawtech.hku.hk" target="_blank" rel="noreferrer" aria-label="Visit HKU Law and Technology Centre">
+            <Image src="/hku-lawtech-logo.svg" alt="HKU Law and Technology Centre" width={280} height={130} />
+            <ArrowUpRight />
+          </a>
+          <a href="https://casebyte.ai/?utm_source=ai_young_lawyers_forum&utm_medium=referral&utm_campaign=supporting_organizations" target="_blank" rel="noreferrer" aria-label="Visit Casebyte">
+            <Image src="/casebyte-black-logo.svg" alt="Casebyte" width={260} height={100} />
+            <ArrowUpRight />
+          </a>
+        </div>
+        <p className="supporterContact">
+          <span>Interested in sponsoring?</span>
+          <a href="mailto:aiyl@aiforyounglawyers.com">aiyl@aiforyounglawyers.com <ArrowUpRight aria-hidden="true" size={18} /></a>
+        </p>
+      </section>
+
       <footer className="footer">
         <div className="footerWord" aria-hidden="true">
-          <Image src="/aiyl.svg" alt="" width={1124} height={780} />
+          <Image src="/aiyl.svg" alt="" width={1356} height={938} />
         </div>
         <div className="footerTop">
           <BrandMark />
