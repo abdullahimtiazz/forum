@@ -95,6 +95,8 @@
 - Added a one-pixel overlap between hero color panels to prevent dark subpixel seams at reduced browser zoom.
 - Updated the sponsorship contact address to `aiyl@aiforyounglawyers.com` in both visible copy and its mail link.
 - Increased the sponsorship question and email sizes while keeping them subordinate to the organisation headline.
+- Replaced the full AIYL lockup with the supplied logo-and-tagline SVG and updated its intrinsic and rendered dimensions.
+- Relaxed display-headline tracking by roughly one to two percent across hero, session, programme, schedule, supporter, CTA, and footer headings.
 
 ## Follow-up polish
 

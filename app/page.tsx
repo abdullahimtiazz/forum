@@ -140,8 +140,8 @@ function BrandMark({ compact = false }: { compact?: boolean }) {
         className="brandLogoImage"
         src={compact ? "/aiyl.svg" : "/aiyltext.svg"}
         alt=""
-        width={compact ? 1356 : 1428}
-        height={compact ? 938 : 604}
+        width={compact ? 1356 : 991}
+        height={compact ? 938 : 449}
         priority
       />
     </span>
