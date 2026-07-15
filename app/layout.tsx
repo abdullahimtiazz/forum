@@ -4,16 +4,30 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://aiforyounglawyers.com"),
-  title: "AI for Young Lawyers Forum",
+  title: "AI for Young Lawyers Forum 2026 | Hong Kong",
   description:
-    "A free Hong Kong forum for law students and young practitioners on AI, legal education, and the changing practice of law.",
+    "A free forum for law students and young practitioners on AI, legal education, and future careers, held 15 August 2026 at The University of Hong Kong.",
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   openGraph: {
     type: "website",
     url: "/",
     siteName: "AI for Young Lawyers Forum",
-    title: "AI for Young Lawyers Forum",
+    title: "AI for Young Lawyers Forum 2026 | Hong Kong",
     description:
-      "A free Hong Kong forum for law students and young practitioners on AI, legal education, and the changing practice of law.",
+      "A free forum for law students and young practitioners on AI, legal education, and future careers, held 15 August 2026 at The University of Hong Kong.",
     images: [
       {
         url: "/aiyl-og.png",
@@ -25,9 +39,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI for Young Lawyers Forum",
+    title: "AI for Young Lawyers Forum 2026 | Hong Kong",
     description:
-      "A free Hong Kong forum for law students and young practitioners on AI, legal education, and the changing practice of law.",
+      "A free forum for law students and young practitioners on AI, legal education, and future careers, held 15 August 2026 at The University of Hong Kong.",
     images: ["/aiyl-og.png"],
   },
 };

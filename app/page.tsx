@@ -133,6 +133,42 @@ const navItems = [
   { href: "#supporters", label: "Supporters" },
 ];
 
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: "AI for Young Lawyers Forum 2026",
+  description:
+    "A free forum for law students and young practitioners on AI, legal education, and future careers.",
+  startDate: "2026-08-15T13:30:00+08:00",
+  endDate: "2026-08-15T18:00:00+08:00",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  image: ["https://aiforyounglawyers.com/aiyl-og.png"],
+  location: {
+    "@type": "Place",
+    name: "Philip K. H. Wong Theatre",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "2/F Cheng Yu Tung Tower, The University of Hong Kong, Pok Fu Lam Road",
+      addressLocality: "Hong Kong",
+      addressCountry: "HK",
+    },
+  },
+  offers: {
+    "@type": "Offer",
+    url: "https://luma.com/3attxu5x",
+    price: "0",
+    priceCurrency: "HKD",
+    availability: "https://schema.org/InStock",
+  },
+  organizer: {
+    "@type": "Organization",
+    name: "AI for Young Lawyers Forum",
+    url: "https://aiforyounglawyers.com/",
+  },
+  isAccessibleForFree: true,
+};
+
 function BrandMark({ compact = false }: { compact?: boolean }) {
   return (
     <span className={`brandMark ${compact ? "brandMarkCompact" : ""}`} aria-label="AI for Young Lawyers">
@@ -251,6 +287,10 @@ export default function Home() {
 
   return (
     <main>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd).replace(/</g, "\\u003c") }}
+      />
       <MobileMenu open={menuOpen} onClose={() => setMenuOpen(false)} />
 
       <section className="hero" id="top">
