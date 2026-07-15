@@ -304,8 +304,21 @@ export default function Home() {
         <div className="programmeHeading">
           <h2>Programme</h2>
           <div className="programmeMeta">
-            <span>15 AUG 2026</span>
-            <span>Philip K. H. Wong Theatre · 2/F Cheng Yu Tung Tower</span>
+            <div className="programmeVenue">
+              <a
+                href="https://www.law.hku.hk/"
+                target="_blank"
+                rel="noreferrer"
+                aria-label="Visit HKU Faculty of Law"
+              >
+                <Image src="/hku-law-logo.png" alt="HKU Faculty of Law" width={487} height={205} />
+              </a>
+              <div className="programmeVenueCopy">
+                <span>15 AUG 2026</span>
+                <span>Philip K. H. Wong Theatre</span>
+                <span>2/F Cheng Yu Tung Tower</span>
+              </div>
+            </div>
           </div>
         </div>
         <div className="schedule">
@@ -358,10 +371,6 @@ export default function Home() {
           <span>Supporting organisations</span>
         </div>
         <div className="supporterGrid">
-          <a href="https://www.law.hku.hk/" target="_blank" rel="noreferrer" aria-label="Visit HKU Faculty of Law">
-            <Image src="/hku-law-logo.png" alt="HKU Faculty of Law" width={487} height={205} />
-            <ArrowUpRight />
-          </a>
           <a href="https://lawtech.hku.hk" target="_blank" rel="noreferrer" aria-label="Visit HKU Law and Technology Centre">
             <Image src="/hku-lawtech-logo.svg" alt="HKU Law and Technology Centre" width={280} height={130} />
             <ArrowUpRight />

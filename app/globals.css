@@ -326,7 +326,7 @@ main { overflow: clip; }
 }
 .programmeHeading {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(330px, 430px);
+  grid-template-columns: minmax(0, 1fr) minmax(470px, 570px);
   gap: 48px;
   align-items: end;
   padding-bottom: 30px;
@@ -339,16 +339,36 @@ main { overflow: clip; }
   line-height: .75;
 }
 .programmeMeta {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 24px;
-  align-items: end;
-  padding-bottom: 4px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 0;
+  transform: translateY(6px);
   font-size: 12px;
   font-weight: 680;
   line-height: 1.35;
   text-transform: uppercase;
 }
+.programmeVenue {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.programmeVenue a {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+.programmeVenue img {
+  display: block;
+  width: 108px;
+  height: auto;
+}
+.programmeVenueCopy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.programmeVenueCopy span { white-space: nowrap; }
 .schedule { border-top: 1px solid var(--ink); }
 .scheduleRow {
   width: 100%;
@@ -417,7 +437,7 @@ main { overflow: clip; }
 }
 .supporterGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   border-top: 1px solid currentColor;
   border-left: 1px solid currentColor;
 }
@@ -590,7 +610,9 @@ main { overflow: clip; }
   .themeSummary { margin-left: 50%; }
   .speakerRail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
   .programme { padding: 62px 18px 80px; }
-  .programmeHeading { grid-template-columns: minmax(0, 1fr) minmax(260px, 340px); gap: 28px; }
+  .programmeHeading { grid-template-columns: minmax(0, 1fr) minmax(360px, 430px); gap: 28px; }
+  .programmeVenue { gap: 22px; }
+  .programmeVenue img { width: 88px; }
   .scheduleRow { grid-template-columns: 110px 110px 1fr 26px; gap: 12px; }
   .supporters { padding: 62px 18px 70px; }
   .registerCta { padding-inline: 18px; }
@@ -648,7 +670,10 @@ main { overflow: clip; }
 
   .programmeHeading { display: block; }
   .programmeHeading h2 { margin: 0 0 28px; font-size: 72px; }
-  .programmeMeta { grid-template-columns: 1fr; gap: 8px; padding-bottom: 0; }
+  .programmeMeta { justify-content: flex-start; padding-bottom: 0; transform: none; }
+  .programmeVenue { margin-top: 5px; gap: 18px; }
+  .programmeVenue img { width: 112px; }
+  .programmeVenueCopy span { white-space: normal; }
   .schedule { margin-top: 34px; }
   .scheduleRow {
     grid-template-columns: 1fr auto;

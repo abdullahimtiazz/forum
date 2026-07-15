@@ -117,6 +117,23 @@
 - Findings: no actionable P0, P1, or P2 mismatches. The altered aspect ratio and larger information hierarchy are intentional adaptations for LinkedIn rather than source drift.
 - Comparison history: the first browser-rendered pass met the stated requirements, so no visual-fix iteration was required.
 
+### Pass 7 — HKU Law venue placement
+
+- Source visual truth: `/var/folders/3f/j7t2kccs44x_jp2f281fwfsw0000gp/T/TemporaryItems/NSIRD_screencaptureui_yGMujq/Screenshot 2026-07-15 at 5.28.27 PM.png`
+- Browser-rendered implementation: `/Users/itsrocky/Projects/forum/.qa/programme-hku-tablet-v5.png`
+- Full-view comparison evidence: `/Users/itsrocky/Projects/forum/.qa/programme-hku-header-comparison.png`
+- Supporting-organisations evidence: `/Users/itsrocky/Projects/forum/.qa/supporters-two-column-v2.png`
+- Viewport and state: 741 x 847 programme section and 1200 x 800 supporters section, fully loaded.
+- Focused comparison: the combined header crop shows the supplied HKU Law logo, increased logo-to-copy spacing, the three-line date/location group, and its bottom alignment against the `Programme` title.
+- Fonts and typography: existing Funnel Sans weights, sizes, tracking, and uppercase metadata treatment are unchanged.
+- Spacing and layout rhythm: the HKU Law logo and date/location now form one end-aligned venue group; the supporter grid resolves cleanly to two equal columns.
+- Colors and visual tokens: the cream programme and lilac/cobalt supporter palettes are unchanged.
+- Image quality and asset fidelity: the existing supplied HKU Law raster logo is reused without approximation or distortion.
+- Copy and content: the date is grouped with the venue as three explicit lines. HKU Law is absent from Supporting Organisations, which now contains only the Law & Technology Centre and Casebyte.
+- Primary interactions tested: the HKU Law logo remains a labelled external link; both remaining supporter cards retain their external links.
+- Findings: no actionable P0, P1, or P2 issues remain.
+- Comparison history: the initial placement separated the date and left insufficient breathing room; the revised pass grouped all three metadata lines, increased the logo gap, and visually aligned the copy block with the programme title.
+
 ## Follow-up polish
 
 - P3 only: final production capture will not show the small Next.js development indicator visible in local development screenshots.
