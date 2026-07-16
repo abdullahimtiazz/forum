@@ -400,7 +400,10 @@ export default function Home() {
             <span>15 August 2026</span>
             <span>Hong Kong</span>
           </div>
-          <h2 id="register-heading">Join the forum.</h2>
+          <div className="registerCtaHeading">
+            <h2 id="register-heading">Join the forum.</h2>
+            <p>Psst… it’s free!</p>
+          </div>
           <a
             className="registerButton"
             href="https://luma.com/3attxu5x"

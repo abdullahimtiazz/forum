@@ -526,6 +526,12 @@ main { overflow: clip; }
   line-height: .78;
   letter-spacing: -.055em;
 }
+.registerCtaHeading p {
+  margin: 22px 0 0;
+  font-size: clamp(20px, 2vw, 30px);
+  font-weight: 600;
+  letter-spacing: -.025em;
+}
 .registerButton {
   display: inline-flex;
   align-items: center;
@@ -696,6 +702,7 @@ main { overflow: clip; }
   .registerCta { min-height: 680px; align-items: center; }
   .registerCtaContent { grid-template-columns: 1fr; gap: 38px; }
   .registerCta h2 { font-size: clamp(76px, 24vw, 116px); line-height: .82; }
+  .registerCtaHeading p { margin-top: 16px; font-size: 21px; }
   .registerButton { width: 100%; min-width: 0; }
   .footer { min-height: 740px; }
   .footerTop p { max-width: 180px; font-size: 22px; }
