@@ -113,8 +113,8 @@ const themes: Theme[] = [
         image: "/ian-chai.png",
       },
       {
-        name: "Horace Wong SC, JP",
-        role: "Barrister & Co-Head of Rede Chambers",
+        name: "Horace Wong, JP",
+        role: "Senior Counsel; Co-Head of Rede Chambers",
         image: "/horace-wong.jpg",
       },
       { name: "Wilfred Ng", role: "Partner, TMT at Bird & Bird", image: "/wilfred-ng.jpg" },
