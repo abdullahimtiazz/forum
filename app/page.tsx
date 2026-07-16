@@ -87,6 +87,7 @@ const themes: Theme[] = [
       },
       { name: "Gallant Guo", role: "Builder | Lawyer in One-Year Gap", image: "/gallant-guo.png" },
       { name: "Leona Zhang", role: "Co-Founder, Terracotta", image: "/leona-zhang.jpeg" },
+      { name: "Wyatt Zhang", role: "Corporate Associate, Fangda Partners", image: "/wyatt-zhang.jpg" },
     ],
   },
   {
@@ -111,6 +112,12 @@ const themes: Theme[] = [
         role: "CEO & Co-Founder, Elefant; Affiliate Faculty, SMU",
         image: "/ian-chai.png",
       },
+      {
+        name: "Horace Wong SC, JP",
+        role: "Co-Head of Rede Chambers",
+        image: "/horace-wong.jpg",
+      },
+      { name: "Wilfred Ng", role: "Partner, TMT at Bird & Bird", image: "/wilfred-ng.jpg" },
     ],
   },
 ];
