@@ -67,7 +67,7 @@ An afternoon forum for law students and young practitioners to explore how AI is
 - **Chandy Ye** — Founder, Beyond Change Advisory; IAPP KnowledgeNet Hong Kong Co-Chair
 - **Wilfred Kwong** — Head of Group Legal, HAECO Group
 - **Ian Ernst Chai** — CEO and Co-Founder, Elefant; Affiliate Faculty, SMU
-- **Horace Wong SC, JP** — Co-Head of Rede Chambers
+- **Horace Wong SC, JP** — Barrister & Co-Head of Rede Chambers
 - **Wilfred Ng** — Partner, TMT at Bird & Bird
 
 ## Supporting organisations
