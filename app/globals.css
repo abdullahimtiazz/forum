@@ -453,6 +453,9 @@ main { overflow: clip; }
 .supporterGrid a:hover { background: rgba(255,255,255,.22); }
 .supporterGrid img { width: auto; max-width: 58%; height: auto; object-fit: contain; }
 .supporterGrid svg { position: absolute; top: 18px; right: 18px; }
+@media (min-width: 621px) {
+  .supporterGrid a:first-child img { width: min(68%, 420px); max-width: none; }
+}
 .supporterContact {
   display: flex;
   align-items: flex-start;
