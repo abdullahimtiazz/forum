@@ -27,7 +27,7 @@ const themes: Theme[] = [
   {
     id: "landscape",
     number: "01",
-    label: "Talk",
+    label: "Panel",
     title: "Frontier Legal AI Landscape",
     kicker: "What is possible now?",
     time: "13:40–14:20",
@@ -46,7 +46,7 @@ const themes: Theme[] = [
     label: "Panel",
     title: "Legal AI in Education",
     kicker: "How should we learn?",
-    time: "14:25–15:15",
+    time: "14:20–15:20",
     summary:
       "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
     className: "themeGreen",
@@ -75,17 +75,17 @@ const themes: Theme[] = [
     label: "Demo session",
     title: "Don’t Wait for Legal Tech: Build Your Own",
     kicker: "What can you make?",
-    time: "16:00–16:20",
+    time: "15:50–16:20",
     summary:
       "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
     className: "themeLilac",
     speakers: [
       {
         name: "Anissa Ng",
-        role: "Sidley Austin corporate associate turned product manager",
+        role: "Sidley Austin corporate associate turned product manager & AI Builder",
         image: "/anissa-ng.jpeg",
       },
-      { name: "Gallant Guo", role: "Builder | Lawyer in One-Year Gap", image: "/gallant-guo.png" },
+      { name: "Gallant Guo", role: "Builder & Lawyer in One-Year Gap", image: "/gallant-guo.png" },
       { name: "Leona Zhang", role: "Co-Founder, Terracotta", image: "/leona-zhang.jpeg" },
       { name: "Wyatt Zhang", role: "Corporate Associate, Fangda Partners", image: "/wyatt-zhang.jpg" },
     ],
@@ -125,11 +125,10 @@ const themes: Theme[] = [
 const schedule = [
   { time: "13:00–13:30", type: "Arrival", title: "Registration" },
   { time: "13:30–13:40", type: "Opening", title: "Opening remarks" },
-  { time: "13:40–14:20", type: "Talk", title: "Frontier Legal AI Landscape", theme: "blue" },
-  { time: "14:20–14:25", type: "Pause", title: "Session changeover", minor: true },
-  { time: "14:25–15:15", type: "Panel", title: "Legal AI in Education", theme: "green" },
+  { time: "13:40–14:20", type: "Panel", title: "Frontier Legal AI Landscape", theme: "blue" },
+  { time: "14:20–15:20", type: "Panel", title: "Legal AI in Education", theme: "green" },
   { time: "15:20–15:50", type: "Break", title: "Tea break", minor: true },
-  { time: "16:00–16:20", type: "Demo session", title: "Don’t Wait for Legal Tech: Build Your Own", theme: "lilac" },
+  { time: "15:50–16:20", type: "Demo session", title: "Don’t Wait for Legal Tech: Build Your Own", theme: "lilac" },
   { time: "16:20–17:20", type: "Panel", title: "Essential AI Skills for Young Lawyers", theme: "orange" },
   { time: "17:20 onwards", type: "Networking", title: "Networking session" },
 ];

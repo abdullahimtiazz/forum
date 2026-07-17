@@ -43,11 +43,10 @@ An afternoon forum for law students and young practitioners to explore how AI is
 
 - **13:00–13:30 — Registration**
 - **13:30–13:40 — Opening remarks**
-- **13:40–14:20 — Frontier Legal AI Landscape.** A talk on frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong. Speakers: Jamie Tso, Troy Song, and Rocky Li.
-- **14:20–14:25 — Session changeover**
-- **14:25–15:15 — Legal AI in Education.** A panel on responsible student use of AI, academic integrity, and experimentation in legal education. Speakers: Benjamin Chen, Stuart Hargreaves, Wang Jiangyu, and Brian Tang.
+- **13:40–14:20 — Frontier Legal AI Landscape.** A panel on frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong. Speakers: Jamie Tso, Troy Song, and Rocky Li.
+- **14:20–15:20 — Legal AI in Education.** A panel on responsible student use of AI, academic integrity, and experimentation in legal education. Speakers: Benjamin Chen, Stuart Hargreaves, Wang Jiangyu, and Brian Tang.
 - **15:20–15:50 — Tea break**
-- **16:00–16:20 — Don’t Wait for Legal Tech: Build Your Own.** Demonstrations of practical legal AI tools for research, drafting, and workflow support. Speakers: Anissa Ng, Gallant Guo, Leona Zhang, and Wyatt Zhang.
+- **15:50–16:20 — Don’t Wait for Legal Tech: Build Your Own.** Demonstrations of practical legal AI tools for research, drafting, and workflow support. Speakers: Anissa Ng, Gallant Guo, Leona Zhang, and Wyatt Zhang.
 - **16:20–17:20 — Essential AI Skills for Young Lawyers.** A panel on how AI changes day-to-day legal work and the skills young lawyers should build. Speakers: Chandy Ye, Wilfred Kwong, Ian Ernst Chai, Horace Wong, JP, and Wilfred Ng.
 - **17:20 onwards — Networking session**
 
@@ -60,8 +59,8 @@ An afternoon forum for law students and young practitioners to explore how AI is
 - **Stuart Hargreaves** — Associate Professor of Law, The Chinese University of Hong Kong
 - **Wang Jiangyu** — Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong
 - **Brian Tang** — Executive Director, LITE Lab@HKU
-- **Anissa Ng** — Sidley Austin corporate associate turned product manager
-- **Gallant Guo** — Builder and lawyer in a one-year gap
+- **Anissa Ng** — Sidley Austin corporate associate turned product manager & AI Builder
+- **Gallant Guo** — Builder & Lawyer in One-Year Gap
 - **Leona Zhang** — Co-Founder, Terracotta
 - **Wyatt Zhang** — Corporate Associate, Fangda Partners
 - **Chandy Ye** — Founder, Beyond Change Advisory; IAPP KnowledgeNet Hong Kong Co-Chair
