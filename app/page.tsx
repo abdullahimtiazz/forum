@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { AnimatePresence, motion, useScroll, useTransform } from "motion/react";
-import { ArrowDown, ArrowUpRight, Menu, X } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 type Speaker = {
@@ -322,8 +322,16 @@ export default function Home() {
           <motion.h1 initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.28, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}>
             Law, technology,<br />judgment &amp; the next<br />generation of practice.
           </motion.h1>
-          <motion.a className="heroCta" href="#themes" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.8 }}>
-            Explore the programme <ArrowDown size={18} />
+          <motion.a
+            className="heroCta"
+            href="https://luma.com/3attxu5x"
+            target="_blank"
+            rel="noreferrer"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            Register now <ArrowUpRight size={18} />
           </motion.a>
         </div>
         <div className="heroDetails">

@@ -159,7 +159,7 @@ main { overflow: clip; }
   text-transform: uppercase;
 }
 .heroCta svg { transition: transform 300ms ease; }
-.heroCta:hover svg { transform: translateY(5px); }
+.heroCta:hover svg { transform: translate(4px, -4px); }
 .heroDetails {
   position: absolute;
   left: 28px;
@@ -637,18 +637,19 @@ main { overflow: clip; }
   .heroContent { align-self: start; padding: 152px 18px 0; }
   .heroContent > p { margin-bottom: 13px; font-size: 10px; }
   .heroContent h1 { font-size: clamp(43px, 13.6vw, 58px); line-height: .88; }
-  .heroCta { margin-top: 24px; font-size: 11px; gap: 12px; }
+  .heroCta { margin-top: 24px; gap: 16px; padding-bottom: 7px; font-size: 16px; }
+  .heroCta svg { width: 22px; height: 22px; }
   .heroDetails {
     right: auto;
-    width: 260px;
+    width: 300px;
     grid-template-columns: 1fr;
-    gap: 5px;
-    padding: 15px 16px;
-    font-size: 16px;
+    gap: 6px;
+    padding: 18px;
+    font-size: 18px;
     line-height: 1.1;
   }
-  .heroDetails span:nth-child(-n+2) { font-size: 19px; }
-  .heroDetails span:last-child { grid-column: 1; margin-top: 5px; font-size: 13px; line-height: 1.15; }
+  .heroDetails span:nth-child(-n+2) { font-size: 23px; }
+  .heroDetails span:last-child { grid-column: 1; margin-top: 6px; font-size: 16px; line-height: 1.15; }
   .brandLogoImage { width: 112px; height: 51px; }
   .brandMarkCompact .brandLogoImage { width: 58px; height: 41px; }
 
