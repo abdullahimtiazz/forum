@@ -123,7 +123,7 @@ const themes: Theme[] = [
 ];
 
 const schedule = [
-  { time: "13:00–13:30", type: "Arrival", title: "Registration" },
+  { time: "13:00–13:30", type: "Arrival", title: "Registration", minor: true },
   { time: "13:30–13:40", type: "Opening", title: "Opening remarks" },
   { time: "13:40–14:20", type: "Panel", title: "Frontier Legal AI Landscape", theme: "blue" },
   { time: "14:20–15:20", type: "Panel", title: "Legal AI in Education", theme: "green" },
