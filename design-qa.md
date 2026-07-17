@@ -82,7 +82,7 @@
 - Moved the registration CTA before supporting organisations so conversion follows the programme directly.
 - Positioned the mobile headline so `practice.` ends above the quadrant divider while the programme link begins below it, and enlarged the stacked event information block.
 - Moved mobile programme type labels to the upper-right of each row, opposite the time, with titles spanning below.
-- Added persistent blue, green, cobalt, and orange accents to the four core programme sessions while rendering session changeover and tea break as smaller, lighter utility rows.
+- Added persistent blue, green, cobalt, and orange accents to the four core programme sessions while rendering the tea break as a smaller, lighter utility row.
 - Removed the supporting-organisations marketing headline, leaving the section label and organisation cards.
 - Added the HKU Faculty of Law logo as the first supporting organisation and expanded the desktop logo grid to three columns.
 - Reworked hero event details into a high-contrast bottom-left card at every viewport, enlarged date and time, and moved desktop hero copy upward to prevent overlap.
