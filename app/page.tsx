@@ -30,7 +30,7 @@ const themes: Theme[] = [
     label: "Panel",
     title: "Frontier Legal AI Landscape",
     kicker: "What is possible now?",
-    time: "13:40–14:20",
+    time: "13:40–14:30",
     summary:
       "Frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong.",
     className: "themeBlue",
@@ -38,6 +38,7 @@ const themes: Theme[] = [
       { name: "Jamie Tso", role: "Founder, LegalQuants", image: "/jamie-tso.jpeg" },
       { name: "Troy Song", role: "International Arbitration Lawyer", image: "/troy-song.jpg" },
       { name: "Rocky Li", role: "Founder, Terracotta", image: "/rocky-li.jpeg" },
+      { name: "Yu Fan", role: "Ph.D. Candidate, ETH Zurich", image: "/yu-fan.jpeg" },
     ],
   },
   {
@@ -46,7 +47,7 @@ const themes: Theme[] = [
     label: "Panel",
     title: "Legal AI in Education",
     kicker: "How should we learn?",
-    time: "14:20–15:20",
+    time: "14:30–15:30",
     summary:
       "How law students can use AI responsibly, what academic integrity requires, and where legal education is already experimenting.",
     className: "themeGreen",
@@ -75,7 +76,7 @@ const themes: Theme[] = [
     label: "Demo session",
     title: "Don’t Wait for Legal Tech: Build Your Own",
     kicker: "What can you make?",
-    time: "15:50–16:20",
+    time: "16:00–16:20",
     summary:
       "Short demonstrations of practical legal AI tools built for legal research, drafting, and workflow support.",
     className: "themeLilac",
@@ -125,10 +126,10 @@ const themes: Theme[] = [
 const schedule = [
   { time: "13:00–13:30", type: "Arrival", title: "Registration", minor: true },
   { time: "13:30–13:40", type: "Opening", title: "Opening remarks" },
-  { time: "13:40–14:20", type: "Panel", title: "Frontier Legal AI Landscape", theme: "blue" },
-  { time: "14:20–15:20", type: "Panel", title: "Legal AI in Education", theme: "green" },
-  { time: "15:20–15:50", type: "Break", title: "Tea break", minor: true },
-  { time: "15:50–16:20", type: "Demo session", title: "Don’t Wait for Legal Tech: Build Your Own", theme: "lilac" },
+  { time: "13:40–14:30", type: "Panel", title: "Frontier Legal AI Landscape", theme: "blue" },
+  { time: "14:30–15:30", type: "Panel", title: "Legal AI in Education", theme: "green" },
+  { time: "15:30–16:00", type: "Break", title: "Tea break", minor: true },
+  { time: "16:00–16:20", type: "Demo session", title: "Don’t Wait for Legal Tech: Build Your Own", theme: "lilac" },
   { time: "16:20–17:20", type: "Panel", title: "Essential AI Skills for Young Lawyers", theme: "orange" },
   { time: "17:20 onwards", type: "Networking", title: "Networking session" },
 ];
@@ -276,7 +277,7 @@ function ThemeSection({ theme }: { theme: Theme }) {
         >{theme.title}</motion.h2>
         <p className="themeSummary">{theme.summary}</p>
       </div>
-      <div className="speakerRail">
+      <div className={`speakerRail ${theme.speakers.length === 5 ? "speakerRailFive" : ""}`}>
         {theme.speakers.map((speaker, index) => (
           <SpeakerCard speaker={speaker} index={index} key={speaker.name} />
         ))}
