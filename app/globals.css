@@ -290,6 +290,7 @@ main { overflow: clip; }
   gap: 12px;
   align-items: start;
 }
+.speakerRailFive { grid-template-columns: repeat(5, minmax(0, 1fr)); }
 .speakerCard { min-width: 0; }
 .speakerPortrait {
   position: relative;
@@ -618,6 +619,7 @@ main { overflow: clip; }
   .themeSection { padding: 22px 18px 60px; }
   .themeSummary { margin-left: 50%; }
   .speakerRail { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px 12px; }
+  .speakerRailFive { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .programme { padding: 62px 18px 80px; }
   .programmeHeading { grid-template-columns: minmax(0, 1fr) minmax(360px, 430px); gap: 28px; }
   .programmeVenue { gap: 22px; }
