@@ -43,10 +43,10 @@ An afternoon forum for law students and young practitioners to explore how AI is
 
 - **13:00–13:30 — Registration**
 - **13:30–13:40 — Opening remarks**
-- **13:40–14:20 — Frontier Legal AI Landscape.** A panel on frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong. Speakers: Jamie Tso, Troy Song, and Rocky Li.
-- **14:20–15:20 — Legal AI in Education.** A panel on responsible student use of AI, academic integrity, and experimentation in legal education. Speakers: Benjamin Chen, Stuart Hargreaves, Wang Jiangyu, and Brian Tang.
-- **15:20–15:50 — Tea break**
-- **15:50–16:20 — Don’t Wait for Legal Tech: Build Your Own.** Demonstrations of practical legal AI tools for research, drafting, and workflow support. Speakers: Anissa Ng, Gallant Guo, Leona Zhang, and Wyatt Zhang.
+- **13:40–14:30 — Frontier Legal AI Landscape.** A panel on frontier legal AI applications, the technical perspective, and adoption limits in Hong Kong. Speakers: Jamie Tso, Troy Song, Rocky Li, and Yu Fan.
+- **14:30–15:30 — Legal AI in Education.** A panel on responsible student use of AI, academic integrity, and experimentation in legal education. Speakers: Benjamin Chen, Stuart Hargreaves, Wang Jiangyu, and Brian Tang.
+- **15:30–16:00 — Tea break**
+- **16:00–16:20 — Don’t Wait for Legal Tech: Build Your Own.** Demonstrations of practical legal AI tools for research, drafting, and workflow support. Speakers: Anissa Ng, Gallant Guo, Leona Zhang, and Wyatt Zhang.
 - **16:20–17:20 — Essential AI Skills for Young Lawyers.** A panel on how AI changes day-to-day legal work and the skills young lawyers should build. Speakers: Chandy Ye, Wilfred Kwong, Ian Ernst Chai, Horace Wong, JP, and Wilfred Ng.
 - **17:20 onwards — Networking session**
 
@@ -55,6 +55,7 @@ An afternoon forum for law students and young practitioners to explore how AI is
 - **Jamie Tso** — Founder, LegalQuants
 - **Troy Song** — International Arbitration Lawyer
 - **Rocky Li** — Founder, Terracotta
+- **Yu Fan** — Ph.D. Candidate, ETH Zurich
 - **Benjamin Chen** — Associate Professor of Law; Director, Law and Technology Centre, The University of Hong Kong
 - **Stuart Hargreaves** — Associate Professor of Law, The Chinese University of Hong Kong
 - **Wang Jiangyu** — Professor of Law; Director, Centre for Chinese and Comparative Law, City University of Hong Kong
